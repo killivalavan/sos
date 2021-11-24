@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import img1 from "../img/carousel/1.jpg";
 import img2 from "../img/carousel/2.jpg";
 import img3 from "../img/carousel/3.jpg";
@@ -9,107 +9,126 @@ import img7 from "../img/carousel/7.jpg";
 import img8 from "../img/carousel/8.jpg";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
+import FormPage from "./Pages/FormPage";
 
 const LandingPage = () => {
+  const [modal, setModal] = useState(false);
+
+  const onclickHandler = () => {
+    setModal(true);
+  };
+
   return (
-    <StyledCarousel>
-      <Carousel pause={false} controls={false} indicators={false}>
-        <Carousel.Item>
-          <div className='gradient'>
-            <img className='d-block w-100' src={img1} alt='First slide' />
-          </div>
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            <button>Click Here</button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className='gradient'>
-            <img className='d-block w-100' src={img2} alt='Second slide' />
-          </div>
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button>Click Here</button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className='gradient'>
-            <img className='d-block w-100' src={img3} alt='Third slide' />
-          </div>
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-            <button>Click Here</button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className='gradient'>
-            <img className='d-block w-100' src={img4} alt='Third slide' />
-          </div>
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-            <button>Click Here</button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className='gradient'>
-            <img className='d-block w-100' src={img5} alt='Third slide' />
-          </div>
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-            <button>Click Here</button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className='gradient'>
-            <img className='d-block w-100' src={img6} alt='Third slide' />
-          </div>
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-            <button>Click Here</button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className='gradient'>
-            <img className='d-block w-100' src={img7} alt='Third slide' />
-          </div>
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-            <button>Click Here</button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className='gradient'>
-            <img className='d-block w-100' src={img8} alt='Third slide' />
-          </div>
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-            <button>Click Here</button>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-    </StyledCarousel>
+    <>
+      <StyledCarousel>
+        <Carousel pause='hover' controls={false} indicators={false}>
+          <Carousel.Item>
+            <div className='gradient'>
+              <img className='d-block w-100' src={img1} alt='First slide' />
+            </div>
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
+              <button onClick={onclickHandler}>Click here</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className='gradient'>
+              <img className='d-block w-100' src={img2} alt='Second slide' />
+            </div>
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+              <button onClick={onclickHandler}>Click here</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className='gradient'>
+              <img className='d-block w-100' src={img3} alt='Third slide' />
+            </div>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+
+              <button onClick={onclickHandler}>Click here</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className='gradient'>
+              <img className='d-block w-100' src={img4} alt='Third slide' />
+            </div>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+
+              <button onClick={onclickHandler}>Click here</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className='gradient'>
+              <img className='d-block w-100' src={img5} alt='Third slide' />
+            </div>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+
+              <button onClick={onclickHandler}>Click here</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className='gradient'>
+              <img className='d-block w-100' src={img6} alt='Third slide' />
+            </div>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+
+              <button onClick={onclickHandler}>Click here</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className='gradient'>
+              <img className='d-block w-100' src={img7} alt='Third slide' />
+            </div>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+
+              <button onClick={onclickHandler}>Click here</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className='gradient'>
+              <img className='d-block w-100' src={img8} alt='Third slide' />
+            </div>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+
+              <button onClick={onclickHandler}>Click here</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </StyledCarousel>
+      {modal && <FormPage setModal={setModal} />}
+    </>
   );
 };
 
@@ -125,11 +144,15 @@ const StyledCarousel = styled.div`
   button {
     /* border: 3px solid white; */
     border: none;
+    border-radius: 5px;
     font-weight: 500;
     padding: 0.4rem 1.4rem;
     background: var(--blue);
     color: white;
+    font-size: 0.9rem;
   }
+
+  /* Gradient for carousel */
   .gradient {
     background: -moz-linear-gradient(
       top,

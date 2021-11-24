@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
 }
 html{ 
     --blue: #2F80ED;
+    --grey: #828282;
 }
 
 body{
