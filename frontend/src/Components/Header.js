@@ -1,26 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../img/logo.png";
+import { Link } from "react-router-dom";
 import sign from "../img/female-sign.png";
 
 const Header = () => {
   return (
     <StyledNav>
       <div id='logo'>
-        <a href='#'>
+        <Link to='/'>
           <img src={logo} alt='' />
           SOS
-        </a>
+        </Link>
       </div>
       <ul>
         <li>
           <a href='#'>write us</a>
         </li>
         <li>
-          <a href='#'>Posts</a>
+          <Link to='/Posts'>Posts</Link>
         </li>
         <li>
-          <a href='#'>About</a>
+          <Link to='/About'>About</Link>
         </li>
       </ul>
     </StyledNav>

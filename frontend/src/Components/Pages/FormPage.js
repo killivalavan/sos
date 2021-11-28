@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import submit from "../../img/submit-logo.png";
 import calender from "../../img/cal.png";
+import axios from "axios";
+import Thank from "../Thank";
 
 const FormPage = ({ setModal }) => {
+  const [clicked, setClicked] = useState(false);
+  const [input, setInput] = useState({
+    name: "",
+    city: "",
+    locality: "",
+    country: "",
+    date: "",
+    category: "",
+    message: "",
+  });
+
+  const onClickHandler = (e) => {
+    e.preventDefault();
+    const newNote = {
+      name: input.name,
+      city: input.city,
+      locality: input.locality,
+      country: input.country,
+      date: input.date,
+      category: input.category,
+      message: input.message,
+    };
+
+    axios.post("http://localhost:3001/posts", newNote);
+    setInput({
+      name: "",
+      city: "",
+      locality: "",
+      country: "",
+      date: "",
+      category: "",
+      message: "",
+    });
+    setClicked(true);
+  };
+
   return (
     <StyledCard>
       <StyledForm>
@@ -28,71 +66,140 @@ const FormPage = ({ setModal }) => {
           <h3>Tell Us</h3>
           <small>We are here to help you !!!</small>
         </div>
-        <form action=''>
-          <div className='details'>
-            <div className='left'>
-              <div className='input-box'>
-                <label htmlFor='name'>
-                  Nick Name <span className='mandatory'>*</span>
-                </label>
-                <input type='text' name='name' id='' required />
+        {!clicked ? (
+          <form>
+            <div className='details'>
+              <div className='left'>
+                <div className='input-box'>
+                  <label htmlFor='name'>
+                    Nick Name <span className='mandatory'>*</span>
+                  </label>
+                  <input
+                    onChange={(e) =>
+                      setInput({ ...input, name: e.target.value })
+                    }
+                    autoComplete='off'
+                    type='text'
+                    name='name'
+                    id=''
+                    value={input.name}
+                    required
+                  />
+                </div>
+                <div className='input-box'>
+                  <label htmlFor='city'>
+                    City <span className='mandatory'>*</span>
+                  </label>
+                  <input
+                    onChange={(e) =>
+                      setInput({ ...input, city: e.target.value })
+                    }
+                    autoComplete='off'
+                    type='text'
+                    name='city'
+                    value={input.city}
+                    id=''
+                    required
+                  />
+                </div>
+                <div className='input-box'>
+                  <label htmlFor='locality'>
+                    Locality <span className='mandatory'>*</span>
+                  </label>
+                  <input
+                    onChange={(e) =>
+                      setInput({ ...input, locality: e.target.value })
+                    }
+                    autoComplete='off'
+                    type='text'
+                    name='locality'
+                    value={input.locality}
+                    id=''
+                    required
+                  />
+                </div>
+                <div className='input-box'>
+                  <label htmlFor='country'>
+                    Country <span className='mandatory'>*</span>
+                  </label>
+                  <input
+                    onChange={(e) =>
+                      setInput({ ...input, country: e.target.value })
+                    }
+                    autoComplete='off'
+                    type='text'
+                    name='country'
+                    value={input.country}
+                    id=''
+                    required
+                  />
+                </div>
+                <div className='input-box file'>
+                  <label htmlFor='file'>Choose a file to attach</label>
+                  <input type='file' name='file' id='' />
+                </div>
               </div>
-              <div className='input-box'>
-                <label htmlFor='city'>
-                  City <span className='mandatory'>*</span>
-                </label>
-                <input type='text' name='city' id='' required />
-              </div>
-              <div className='input-box'>
-                <label htmlFor='name'>
-                  Locality <span className='mandatory'>*</span>
-                </label>
-                <input type='text' name='name' id='' required />
-              </div>
-              <div className='input-box'>
-                <label htmlFor='country'>
-                  Country <span className='mandatory'>*</span>
-                </label>
-                <input type='text' name='country' id='' required />
-              </div>
-              <div className='input-box file'>
-                <label htmlFor='file'>Choose a file to attach</label>
-                <input type='file' name='file' id='' />
+              <div className='right'>
+                <div className='input-box'>
+                  <label htmlFor='date'>
+                    When <span className='mandatory'>*</span>
+                  </label>
+                  <input
+                    onChange={(e) =>
+                      setInput({ ...input, date: e.target.value })
+                    }
+                    autoComplete='off'
+                    type='date'
+                    name='date'
+                    value={input.date}
+                    id=''
+                    required
+                  />
+                </div>
+                <div className='input-box'>
+                  <label htmlFor='category'>
+                    Select one <span className='mandatory'>*</span>
+                  </label>
+                  <input
+                    onChange={(e) =>
+                      setInput({ ...input, category: e.target.value })
+                    }
+                    autoComplete='off'
+                    type='text'
+                    name='category'
+                    value={input.category}
+                    id=''
+                    required
+                  />
+                </div>
+                <div className='input-box'>
+                  <label htmlFor='message'>
+                    Message <span className='mandatory'>*</span>
+                  </label>
+                  <textarea
+                    onChange={(e) =>
+                      setInput({ ...input, message: e.target.value })
+                    }
+                    autoComplete='off'
+                    name='message'
+                    id=''
+                    value={input.message}
+                    placeholder='what happened to you.'
+                    required
+                  ></textarea>
+                </div>
+                <div className='input-box'>
+                  <button onClick={onClickHandler} type='submit'>
+                    <img src={submit} alt='' />
+                    Sumbit
+                  </button>
+                </div>
               </div>
             </div>
-            <div className='right'>
-              <div className='input-box'>
-                <label htmlFor='date'>
-                  When <span className='mandatory'>*</span>
-                </label>
-                <input type='date' name='date' id='' required />
-              </div>
-              <div className='input-box'>
-                <label htmlFor='cate'>
-                  Select one <span className='mandatory'>*</span>
-                </label>
-                <input type='text' name='cate' id='' required />
-              </div>
-              <div className='input-box'>
-                <label htmlFor='cate'>
-                  Message <span className='mandatory'>*</span>
-                </label>
-                <textarea
-                  name='message'
-                  id=''
-                  placeholder='what happened to you.'
-                  required
-                ></textarea>
-              </div>
-              <div className='input-box'>
-                <button type='submit'>
-                  <img src={submit} alt='' />
-                  Sumbit
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
+          </form>
+        ) : (
+          <Thank />
+        )}
       </StyledForm>
     </StyledCard>
   );

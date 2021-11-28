@@ -5,7 +5,6 @@ import LandingPage from "../LandingPage";
 const HomePage = () => {
   return (
     <div>
-      <Header />
       <LandingPage />
     </div>
   );
