@@ -4,11 +4,16 @@ import submit from "../../img/submit-logo.png";
 import calender from "../../img/cal.png";
 import axios from "axios";
 import Thank from "../Thank";
+import { formSchema } from "../Validation";
+import { setLocale } from "yup";
 
 const FormPage = ({ setModal }) => {
-  const [clicked, setClicked] = useState(false);
+  const [valid, setValid] = useState(false);
+  const [closeIcon, setCloseIcon] = useState(true);
+  const [error, setError] = useState("");
   const [input, setInput] = useState({
     name: "",
+    mail: "",
     city: "",
     locality: "",
     country: "",
@@ -17,10 +22,11 @@ const FormPage = ({ setModal }) => {
     message: "",
   });
 
-  const onClickHandler = (e) => {
+  const onClickHandler = async (e) => {
     e.preventDefault();
-    const newNote = {
+    const formData = {
       name: input.name,
+      mail: input.mail,
       city: input.city,
       locality: input.locality,
       country: input.country,
@@ -29,44 +35,55 @@ const FormPage = ({ setModal }) => {
       message: input.message,
     };
 
-    axios.post("http://localhost:3001/posts", newNote);
-    setInput({
-      name: "",
-      city: "",
-      locality: "",
-      country: "",
-      date: "",
-      category: "",
-      message: "",
-    });
-    setClicked(true);
+    try {
+      const validation = await formSchema.validate(formData);
+    } catch (err) {
+      console.log(err.errors);
+      setError(err.errors);
+    }
+
+    const isValid = await formSchema.isValid(formData);
+    setValid(isValid);
+    isValid && axios.post("http://localhost:3001/posts", formData);
+  };
+
+  // Remove Alert
+  const closeHandler = (e) => {
+    if (e.target.id === "close") {
+      setModal(false);
+    }
   };
 
   return (
-    <StyledCard>
+    <StyledCard onClick={closeHandler} id='close'>
       <StyledForm>
-        <div className='close' onClick={() => setModal(false)}>
-          <svg
-            className='close'
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-2 w-2'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M6 18L18 6M6 6l12 12'
-            />
-          </svg>
-        </div>
-        <div className='title'>
-          <h3>Tell Us</h3>
-          <small>We are here to help you !!!</small>
-        </div>
-        {!clicked ? (
+        {closeIcon && (
+          <div className='close' onClick={() => setModal(false)}>
+            <svg
+              className='close'
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-2 w-2'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M6 18L18 6M6 6l12 12'
+              />
+            </svg>
+          </div>
+        )}
+        {!valid && (
+          <div className='title'>
+            <h3>Tell Us</h3>
+            <small>We are here to help you !!!</small>
+            <p id='alert'>{error}</p>
+          </div>
+        )}
+        {!valid ? (
           <form>
             <div className='details'>
               <div className='left'>
@@ -83,6 +100,20 @@ const FormPage = ({ setModal }) => {
                     name='name'
                     id=''
                     value={input.name}
+                    required
+                  />
+                </div>
+                <div className='input-box'>
+                  <label htmlFor='email'>Email (optional)</label>
+                  <input
+                    onChange={(e) =>
+                      setInput({ ...input, mail: e.target.value })
+                    }
+                    autoComplete='off'
+                    type='email'
+                    name='email'
+                    id=''
+                    value={input.mail}
                     required
                   />
                 </div>
@@ -135,7 +166,9 @@ const FormPage = ({ setModal }) => {
                   />
                 </div>
                 <div className='input-box file'>
-                  <label htmlFor='file'>Choose a file to attach</label>
+                  <label htmlFor='file'>
+                    Choose a file to attach (optional)
+                  </label>
                   <input type='file' name='file' id='' />
                 </div>
               </div>
@@ -189,7 +222,11 @@ const FormPage = ({ setModal }) => {
                   ></textarea>
                 </div>
                 <div className='input-box'>
-                  <button onClick={onClickHandler} type='submit'>
+                  <button
+                    disabled={false}
+                    onClick={onClickHandler}
+                    type='submit'
+                  >
                     <img src={submit} alt='' />
                     Sumbit
                   </button>
@@ -198,7 +235,7 @@ const FormPage = ({ setModal }) => {
             </div>
           </form>
         ) : (
-          <Thank />
+          <Thank setCloseIcon={setCloseIcon} />
         )}
       </StyledForm>
     </StyledCard>
@@ -218,7 +255,7 @@ const StyledCard = styled.div`
 
 const StyledForm = styled.div`
   width: 70%;
-  margin-top: 8rem;
+  margin-top: 7rem;
   border-radius: 10px;
   padding: 2rem 2rem 3rem 5rem;
   background: white;
@@ -316,6 +353,21 @@ const StyledForm = styled.div`
       }
     }
   }
+  #alert {
+    width: 30%;
+    margin: 1rem auto 0rem auto;
+    font-size: 0.7rem;
+    background: rgba(47, 128, 237, 0.3);
+    text-align: center;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  /* button[type="submit"]:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  } */
 `;
 
 export default FormPage;

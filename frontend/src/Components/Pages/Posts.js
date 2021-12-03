@@ -11,7 +11,7 @@ const Posts = () => {
 
   useEffect(() => {
     getPosts();
-  }, [posts]);
+  }, []);
 
   console.log(posts);
   return (
