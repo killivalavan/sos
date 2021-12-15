@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import submit from "../../img/submit-logo.png";
-import calender from "../../img/cal.png";
+import warning from "../../img/warning.png";
 import axios from "axios";
 import Thank from "../Thank";
 import { formSchema } from "../Validation";
@@ -80,7 +80,14 @@ const FormPage = ({ setModal }) => {
           <div className='title'>
             <h3>Tell Us</h3>
             <small>We are here to help you !!!</small>
-            <p id='alert'>{error}</p>
+            {error && (
+              <div id='alert'>
+                <p>
+                  {error}
+                  <img src={warning} alt={warning} />
+                </p>
+              </div>
+            )}
           </div>
         )}
         {!valid ? (
@@ -255,7 +262,7 @@ const StyledCard = styled.div`
 
 const StyledForm = styled.div`
   width: 70%;
-  margin-top: 7rem;
+  margin-top: 5rem;
   border-radius: 10px;
   padding: 2rem 2rem 3rem 5rem;
   background: white;
@@ -354,13 +361,23 @@ const StyledForm = styled.div`
     }
   }
   #alert {
-    width: 30%;
     margin: 1rem auto 0rem auto;
+    padding: 0.3rem;
     font-size: 0.7rem;
-    background: rgba(47, 128, 237, 0.3);
     text-align: center;
     &::first-letter {
       text-transform: uppercase;
+    }
+    p {
+      display: table;
+      border-radius: 2px;
+      padding: 0.3rem 2rem;
+      margin: 0px auto 0px auto;
+      background: rgba(47, 128, 237, 0.3);
+    }
+    img {
+      width: 0.8rem;
+      margin-left: 0.4rem;
     }
   }
 

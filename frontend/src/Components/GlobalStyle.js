@@ -6,9 +6,25 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 }
+ // Scroll Bar
+ *::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+    background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.5);
+    border-radius: 20px;
+    border: transparent;
+    }
+
 html{ 
     --blue: #2F80ED;
     --grey: #828282;
+    scroll-behavior: smooth;
 }
 
 body{

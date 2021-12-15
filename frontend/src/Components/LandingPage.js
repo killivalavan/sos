@@ -24,7 +24,7 @@ const LandingPage = () => {
   return (
     <>
       <StyledCarousel>
-        <Carousel pause='hover' controls={false} indicators={false}>
+        <Carousel controls={false} indicators={false}>
           <Carousel.Item>
             <div className='gradient'>
               <img className='d-block w-100' src={img1} alt='First slide' />
@@ -149,7 +149,7 @@ const StyledCarousel = styled.div`
     padding: 0.4rem 1.4rem;
     background: var(--blue);
     color: white;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   /* Gradient for carousel */

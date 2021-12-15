@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import About from "./Components/Pages/About";
 import Posts from "./Components/Pages/Posts";
+import PostDetails from "./Components/Pages/PostDetails";
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
         <Route exact path='/'>
           <HomePage />
         </Route>
-        <Route path='/Posts'>
+        <Route exact path={["/posts", "/posts/:id"]}>
           <Posts />
         </Route>
-        <Route path='/About'>
+        <Route path='/about'>
           <About />
         </Route>
       </Switch>

@@ -18,10 +18,10 @@ const Header = () => {
           <a href='#'>write us</a>
         </li>
         <li>
-          <Link to='/Posts'>Posts</Link>
+          <Link to='/posts'>Posts</Link>
         </li>
         <li>
-          <Link to='/About'>About</Link>
+          <Link to='/about'>About</Link>
         </li>
       </ul>
     </StyledNav>

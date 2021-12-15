@@ -6,7 +6,7 @@ export let formSchema = yup.object().shape({
   city: yup.string().max(20).min(3).required(),
   locality: yup.string().max(20).min(3).required(),
   country: yup.string().max(10).min(2).required(),
-  date: yup.string(),
+  date: yup.date(),
   category: yup.string().required(),
-  message: yup.string().min(10).max(200).required(),
+  message: yup.string().min(30).max(2000).required(),
 });
