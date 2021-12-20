@@ -1,43 +1,38 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import Footer from "../Footer";
 import styled from "styled-components";
 import image from "../../img/back.jpg";
 import AboutCard from "../AboutCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
+import Counter from "../Counter";
+import Map from "../Map";
 const About = () => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    setIsFlipped(!isFlipped);
-  };
-
-  const [visible, setVisible] = useState(true);
-
-  const toggleVisible = () => {};
-
-  useEffect(() => {
-    const scrolled = document.documentElement.scrollTop;
-
-    setVisible(scrolled);
-  }, []);
-
-  console.log(visible);
+  // To hide scrolldown icon
+  const { hash } = useLocation();
 
   return (
     <Shadow>
       <SectionOne id='SectionOne'>
-        {visible && (
-          <Arrow>
-            <div class='arrow bounce'>
-              <a class='' href='#SectionTwo'>
-                <FontAwesomeIcon size='2x' icon={faAngleDoubleDown} />
-              </a>
-            </div>
-          </Arrow>
-        )}
+        <Heart>
+          <div className='heart'></div>
+        </Heart>
+        <Arrow>
+          <div
+            className={` arrow bounce ${
+              hash === "#NextSection" ? "inactive" : "active"
+            }`}
+          >
+            <a href='#NextSection'>
+              <FontAwesomeIcon size='2x' icon={faAngleDoubleDown} />
+            </a>
+          </div>
+        </Arrow>
       </SectionOne>
+      <Map id='NextSection' />
+      <Counter />
+
       <SectionTwo id='SectionTwo'>
         <div className='box Our'>
           <h6>
@@ -150,12 +145,70 @@ const SectionOne = styled.div`
     bottom: 15%;
     right: 2%;
   }
+  h3 {
+    position: absolute;
+    right: 0;
+    top: 5%;
+  }
+`;
+
+const Heart = styled.div`
+  position: absolute;
+  right: 25%;
+  top: 35%;
+  transform: translate(-35%, 25%);
+
+  .heart {
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+    animation: heart 0.6s linear infinite;
+  }
+
+  .heart::before {
+    content: "";
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    top: -50%;
+    border-radius: 50px;
+    box-shadow: 10px -10px 90px #f20044;
+  }
+  .heart::after {
+    content: "";
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    right: -50%;
+    border-radius: 50px;
+    box-shadow: 10px 10px 90px #f20044;
+  }
+
+  @keyframes heart {
+    0% {
+      transform: rotate(-45deg) scale(1.06);
+    }
+    80% {
+      transform: rotate(-45deg) scale(1);
+    }
+    100% {
+      transform: rotate(-45deg) scale(1);
+    }
+  }
 `;
 
 const Arrow = styled.div`
   position: absolute;
   bottom: 0;
   right: 3%;
+  .inactive {
+    display: none;
+  }
   a {
     color: var(--blue);
     text-decoration: none;
@@ -194,7 +247,7 @@ const SectionTwo = styled.div`
   margin: auto;
   padding-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(400px, auto));
   grid-gap: 2rem;
   grid-column-gap: 3rem;
   .box {
@@ -205,17 +258,9 @@ const SectionTwo = styled.div`
     padding: 1rem 1rem 0rem 1rem;
     transition: all 0.5s ease-in-out;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    span {
-      border-bottom: 5px solid white;
-    }
     &:hover {
-      cursor: pointer;
       border-left: 7px solid white;
       box-shadow: 0 8px 16px 0 rgba(43, 129, 238, 0.5);
-      span {
-        transition: all 0.5s ease-in-out;
-        border-bottom: 5px solid var(--blue);
-      }
     }
   }
   p {

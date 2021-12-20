@@ -18,6 +18,7 @@ const StyledFooter = styled.div`
   margin-top: 3rem;
   background: var(--blue);
   color: white;
+  font-weight: 600;
   .content {
     width: 80%;
     margin: auto;

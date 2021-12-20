@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import img1 from "../img/carousel/1.jpg";
 import img2 from "../img/carousel/2.jpg";
 import img3 from "../img/carousel/3.jpg";

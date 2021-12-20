@@ -5,6 +5,7 @@ import Message from "../Message";
 import { useLocation } from "react-router-dom";
 import PostDetails from "./PostDetails";
 import { SpinnerPosts, SpinnerMain } from "../Spinner";
+import LazyLoad from "react-lazyload";
 
 const Posts = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,8 +31,9 @@ const Posts = () => {
       <StyledPost>
         <StyledMessage>
           {posts.map((post) => (
-            <>
+            <LazyLoad key={post._id} throttle={200} height={200} offset={[100, 0]} placeholder={<SpinnerPosts />}>
               {!isLoading && (
+                // <LazyLoad height={200}>
                 <Message
                   key={post._id}
                   id={post._id}
@@ -39,8 +41,9 @@ const Posts = () => {
                   message={post.message}
                   date={post.updatedAt}
                 />
+                // </LazyLoad>
               )}
-            </>
+            </LazyLoad>
           ))}
         </StyledMessage>
         {isLoading && <SpinnerMain />}

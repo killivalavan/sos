@@ -57,6 +57,10 @@ const StyledNav = styled.div`
       margin-right: 0.5rem;
     }
   }
+
+  @media screen and (max-width: 920px) {
+    display: fixed;
+  }
 `;
 
 export default Header;
