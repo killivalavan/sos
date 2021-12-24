@@ -21,7 +21,7 @@ const Thank = ({ setCloseIcon }) => {
           <div className='text'>
             <h3>Thank You!</h3>
             <p>
-              your submission has been received, We'll review them and post!
+              Your submission has been received, We'll review them and post!
             </p>
           </div>
         ) : (
@@ -37,12 +37,14 @@ const Thank = ({ setCloseIcon }) => {
 const StyledThank = styled.div`
   text-align: center;
   margin-top: 0.7rem;
-  animation-name: shine;
   h3 {
     margin: 0.8rem 0rem;
   }
   img {
     width: 5rem;
+  }
+  p {
+    margin: 0;
   }
 `;
 export default Thank;

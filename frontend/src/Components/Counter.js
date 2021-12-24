@@ -7,7 +7,6 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import CountUp from "react-countup";
-import map from "../img/map.svg";
 
 const Counter = () => {
   return (
@@ -33,7 +32,6 @@ const Counter = () => {
         </div>
         <div className='three'>
           <FontAwesomeIcon className='icon' size='3x' icon={faUsers} />
-
           <h3>
             734,
             <CountUp duration={1.5} delay={4} start={0} end={630} />+

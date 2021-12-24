@@ -31,12 +31,21 @@ const StyledSpinner = styled.div`
     width: 100px;
     height: 10px;
   }
+  @media screen and (max-width: 678px) {
+    .spinnerMsg {
+      margin-top: 0rem;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0rem;
+  }
 `;
 
 export const SpinnerMsg = () => {
   return (
     <div>
-      <div className='spinner'>
+      <MsgSpinner>
         <Skeleton
           sx={{ mt: 6 }}
           variant='rectangular'
@@ -65,13 +74,36 @@ export const SpinnerMsg = () => {
           sx={{ mt: 2 }}
           variant='rectangular'
           animation='wave'
-          width={500}
           height={10}
         />
-      </div>
+        <Skeleton
+          sx={{ mt: 2 }}
+          variant='rectangular'
+          animation='wave'
+          height={10}
+        />
+        <Skeleton
+          className='lastLine'
+          sx={{ mt: 2 }}
+          variant='rectangular'
+          animation='wave'
+          height={10}
+        />
+      </MsgSpinner>
     </div>
   );
 };
+
+const MsgSpinner = styled.div`
+  .lastLine {
+    width: 90%;
+  }
+  @media screen and (max-width: 678px) {
+    .lastLine {
+      width: 50%;
+    }
+  }
+`;
 
 // Spinner for Posts
 export const SpinnerPosts = () => {

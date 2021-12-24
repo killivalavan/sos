@@ -11,11 +11,15 @@ const Avatarr = () => {
     glassesStyle: "none",
     isGradient: "true",
     eyeStyle: "circle",
+    size: {
+      width: "3rem",
+      height: "3rem",
+    },
   });
 
   return (
     <div>
-      <Avatar style={{ width: "3rem", height: "3rem" }} {...config} />
+      <Avatar {...config} />
     </div>
   );
 };
@@ -23,6 +27,8 @@ const Avatarr = () => {
 const StyledAvatar = styled.div`
   width: 5rem;
   height: 5rem;
+  @media screen and (max-width: 678px) {
+  }
 `;
 
 export default Avatarr;

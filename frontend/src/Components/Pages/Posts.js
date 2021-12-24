@@ -17,6 +17,7 @@ const Posts = () => {
     setPosts(data);
     setIsLoading(false);
   };
+
   // To get pathID
   const location = useLocation();
   const pathId = location.pathname.split("/")[2];
@@ -31,7 +32,13 @@ const Posts = () => {
       <StyledPost>
         <StyledMessage>
           {posts.map((post) => (
-            <LazyLoad key={post._id} throttle={200} height={200} offset={[100, 0]} placeholder={<SpinnerPosts />}>
+            <LazyLoad
+              key={post._id}
+              throttle={200}
+              height={200}
+              offset={[100, 0]}
+              placeholder={<SpinnerPosts />}
+            >
               {!isLoading && (
                 // <LazyLoad height={200}>
                 <Message
@@ -53,7 +60,7 @@ const Posts = () => {
 };
 
 const StyledPost = styled.div`
-  min-height: 90vh;
+  min-height: 100vh;
   width: 100%;
   background: #f2f2f2;
   padding: 4rem 0rem 2rem 0rem;
@@ -63,8 +70,12 @@ const StyledMessage = styled.div`
   width: 80%;
   margin: 0rem auto;
   display: grid;
+  justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(290px, auto));
   grid-gap: 1.5rem;
+  @media screen and (max-width: 1300px) {
+    width: 90%;
+  }
 `;
 
 export default Posts;

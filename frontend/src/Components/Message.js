@@ -50,6 +50,15 @@ const Message = ({ id, name, message, date }) => {
               </Link>
             )}
           </div>
+          <div className='message-mobile-view'>
+            {message.substring(0, 270)}
+            {message.length >= 160 && (
+              <Link className='read-more' to={`/posts/${id}`}>
+                {" "}
+                Read more
+              </Link>
+            )}
+          </div>
         </div>
       </Card>
     </>
@@ -87,10 +96,30 @@ const Card = styled.div`
       /* font-size: 0.6rem; */
     }
     .more-info {
+      color: var(--blue);
       &:hover {
-        color: var(--blue);
         text-decoration: underline;
         text-underline-offset: 1px;
+      }
+    }
+    .message-mobile-view {
+      display: none;
+    }
+    .message {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 678px) {
+    height: 20vh;
+    width: 20rem;
+
+    .card-body {
+      .message-mobile-view {
+        display: block;
+      }
+      .message {
+        display: none;
       }
     }
   }

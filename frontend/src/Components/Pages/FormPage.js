@@ -38,7 +38,6 @@ const FormPage = ({ setModal }) => {
     try {
       const validation = await formSchema.validate(formData);
     } catch (err) {
-      console.log(err.errors);
       setError(err.errors);
     }
 
@@ -82,10 +81,7 @@ const FormPage = ({ setModal }) => {
             <small>We are here to help you !!!</small>
             {error && (
               <div id='alert'>
-                <p>
-                  {error}
-                  <img src={warning} alt={warning} />
-                </p>
+                <p>{error}</p>
               </div>
             )}
           </div>
@@ -224,7 +220,7 @@ const FormPage = ({ setModal }) => {
                     name='message'
                     id=''
                     value={input.message}
-                    placeholder='what happened to you.'
+                    placeholder='Describe in 1000 words'
                     required
                   ></textarea>
                 </div>
@@ -282,7 +278,7 @@ const StyledForm = styled.div`
   }
 
   .input-box {
-    margin-right: 5rem;
+    width: 100%;
   }
   input,
   textarea {
@@ -316,6 +312,7 @@ const StyledForm = styled.div`
       flex: 1 1 15rem;
       flex-direction: column;
       justify-content: space-between;
+      margin-right: 5rem;
     }
   }
   button {
@@ -381,10 +378,29 @@ const StyledForm = styled.div`
     }
   }
 
-  /* button[type="submit"]:disabled {
-    opacity: 0.7;
-    pointer-events: none;
-  } */
+  @media screen and (max-width: 1080px) {
+    width: 90%;
+    margin: 5rem auto;
+    left: 6%;
+  }
+  @media screen and (max-width: 620px) {
+    padding: 2rem 2rem 3rem 2rem;
+
+    .input-box {
+      width: 100%;
+    }
+    .details {
+      .left,
+      .right {
+        margin-right: 0rem;
+      }
+    }
+    .title {
+      width: 100%;
+    }
+    #alert {
+    }
+  }
 `;
 
 export default FormPage;
