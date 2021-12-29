@@ -34,7 +34,7 @@ const LandingPage = () => {
               <h3>First slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 
-              <button onClick={onclickHandler}>Click here</button>
+              <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -45,7 +45,7 @@ const LandingPage = () => {
               <h3>Second slide label</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-              <button onClick={onclickHandler}>Click here</button>
+              <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -58,7 +58,7 @@ const LandingPage = () => {
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>
 
-              <button onClick={onclickHandler}>Click here</button>
+              <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -71,7 +71,7 @@ const LandingPage = () => {
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>
 
-              <button onClick={onclickHandler}>Click here</button>
+              <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -84,7 +84,7 @@ const LandingPage = () => {
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>
 
-              <button onClick={onclickHandler}>Click here</button>
+              <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -97,7 +97,7 @@ const LandingPage = () => {
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>
 
-              <button onClick={onclickHandler}>Click here</button>
+              <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -110,7 +110,7 @@ const LandingPage = () => {
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>
 
-              <button onClick={onclickHandler}>Click here</button>
+              <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -123,7 +123,7 @@ const LandingPage = () => {
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>
 
-              <button onClick={onclickHandler}>Click here</button>
+              <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
@@ -143,14 +143,13 @@ const StyledCarousel = styled.div`
     position: relative;
   }
   button {
-    /* border: 3px solid white; */
     border: none;
-    border-radius: 5px;
-    font-weight: 500;
-    padding: 0.4rem 1.4rem;
+    border-radius: 10px 0px 10px 0px;
+    font-weight: 400;
+    padding: 0.3rem 1.5rem;
     background: var(--blue);
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   /* Gradient for carousel */

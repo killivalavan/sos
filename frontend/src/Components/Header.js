@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <StyledNav>
-      <div onClick={onClickHandler} id='logo'>
+      <div id='logo'>
         <Link to='/'>
           <img src={logo} alt='' />
           SOS
@@ -65,7 +65,7 @@ const Header = () => {
         className={`nav-links ${open ? "active" : ""}`}
       >
         <li>
-          <a href='#'>write us</a>
+          <Link to='/'>Home</Link>
         </li>
         <li>
           <Link to='/posts'>Posts</Link>
@@ -87,6 +87,9 @@ const StyledNav = styled.div`
   flex-wrap: wrap;
   font-weight: 600;
   color: var(--blue);
+  a:hover {
+    color: none;
+  }
   svg {
     width: 3rem;
     color: var(--blue);
@@ -137,9 +140,11 @@ const StyledNav = styled.div`
     }
     .hamburger {
       display: block;
+      cursor: pointer;
     }
     .close.active {
       display: block;
+      cursor: pointer;
     }
 
     .nav-links.active {

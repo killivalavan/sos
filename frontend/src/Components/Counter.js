@@ -15,7 +15,7 @@ const Counter = () => {
         <div className='one'>
           <FontAwesomeIcon className='icon' size='3x' icon={faGlobeAsia} />
           <h3>
-            <CountUp duration={1.5} delay={0} start={1} end={11} />+
+            <CountUp duration={1.5} delay={0} start={1} end={11} /> +
           </h3>
           <p>Countries with high crime rate in the world 2021</p>
         </div>
@@ -34,7 +34,7 @@ const Counter = () => {
           <FontAwesomeIcon className='icon' size='3x' icon={faUsers} />
           <h3>
             734,
-            <CountUp duration={1.5} delay={4} start={0} end={630} />+
+            <CountUp duration={1.5} delay={4} start={0} end={630} /> +
           </h3>
           <p>people were raped only in the U.S as per report</p>
         </div>
@@ -44,7 +44,14 @@ const Counter = () => {
 };
 
 const StyledCounter = styled.div`
-  background: rgba(43, 129, 238, 0.5);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(13, 110, 253, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
   text-align: center;
   padding: 2rem 0rem;
   .title {
@@ -55,7 +62,6 @@ const StyledCounter = styled.div`
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: flex-start;
-    /* margin: 2rem 0rem; */
   }
   .icon {
     margin-bottom: 1rem;
@@ -64,6 +70,11 @@ const StyledCounter = styled.div`
   .two,
   .three {
     width: 18rem;
+  }
+  @media screen and (max-width: 584px) {
+    .icon {
+      margin-top: 2.5rem;
+    }
   }
 `;
 export default Counter;

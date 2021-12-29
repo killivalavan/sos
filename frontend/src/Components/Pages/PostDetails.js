@@ -14,7 +14,7 @@ const PostDetails = ({ id }) => {
   const [close, setClose] = useState(false);
   const history = useHistory();
 
-  // shadow close
+  // shadow closer
   const closeHandler = (e) => {
     if (e.target.classList.contains("shadow")) {
       history.push("/posts");
@@ -35,14 +35,13 @@ const PostDetails = ({ id }) => {
     eyeStyle: "circle",
   });
 
-  const getPostDetails = async () => {
-    const { data } = await axios.get(`http://localhost:3001/posts/${id}`);
-    setPostDetails(data);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
-    getPostDetails();
+    const getPostDetails = async () => {
+      const { data } = await axios.get(`http://localhost:3001/posts/${id}`);
+      setPostDetails(data);
+      setIsLoading(!isloading);
+    };
+    return getPostDetails();
   }, []);
 
   return (
@@ -52,14 +51,15 @@ const PostDetails = ({ id }) => {
           <div onClick={closeIconHandler} className='close'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
+              className='h-6 w-6'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
             >
               <path
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
                 d='M6 18L18 6M6 6l12 12'
               />
             </svg>
@@ -242,6 +242,9 @@ const Message = styled.div`
     color: var(--blue);
     text-align: left;
     margin-bottom: 2rem;
+  }
+  p {
+    /* color: #696969; */
   }
 `;
 

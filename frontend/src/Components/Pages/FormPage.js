@@ -6,11 +6,22 @@ import axios from "axios";
 import Thank from "../Thank";
 import { formSchema } from "../Validation";
 import { setLocale } from "yup";
+// Country list
+import { Country, State, City } from "country-state-city";
+//
+import {
+  CountryDropdown,
+  RegionDropdown,
+  CountryRegionData,
+} from "react-country-region-selector";
 
 const FormPage = ({ setModal }) => {
   const [valid, setValid] = useState(false);
   const [closeIcon, setCloseIcon] = useState(true);
   const [error, setError] = useState("");
+  // State SElection
+  const [countryy, setCountryy] = useState([]);
+
   const [input, setInput] = useState({
     name: "",
     mail: "",
@@ -21,6 +32,8 @@ const FormPage = ({ setModal }) => {
     category: "",
     message: "",
   });
+  // setCountryy(input.country);
+  console.log(input.country);
 
   const onClickHandler = async (e) => {
     e.preventDefault();
@@ -52,6 +65,21 @@ const FormPage = ({ setModal }) => {
       setModal(false);
     }
   };
+
+  // country list
+  const country = Country.getAllCountries();
+  const states = State.getAllStates();
+
+  // if(country ===  )
+  // console.log(State.getStatesOfCountry("ANG"));
+
+  // country.map((cont) => {
+  //   if(country === cont.){
+
+  //   }else{
+
+  //   }
+  // });
 
   return (
     <StyledCard onClick={closeHandler} id='close'>
@@ -124,7 +152,7 @@ const FormPage = ({ setModal }) => {
                   <label htmlFor='city'>
                     City <span className='mandatory'>*</span>
                   </label>
-                  <input
+                  {/* <input
                     onChange={(e) =>
                       setInput({ ...input, city: e.target.value })
                     }
@@ -134,7 +162,15 @@ const FormPage = ({ setModal }) => {
                     value={input.city}
                     id=''
                     required
-                  />
+                  /> */}
+
+                  <select name='country' id='country'>
+                    {country.map((cont) => (
+                      <option key={cont.isoCode} value={cont.name}>
+                        {cont.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <div className='input-box'>
                   <label htmlFor='locality'>
@@ -156,7 +192,7 @@ const FormPage = ({ setModal }) => {
                   <label htmlFor='country'>
                     Country <span className='mandatory'>*</span>
                   </label>
-                  <input
+                  {/* <input
                     onChange={(e) =>
                       setInput({ ...input, country: e.target.value })
                     }
@@ -166,7 +202,21 @@ const FormPage = ({ setModal }) => {
                     value={input.country}
                     id=''
                     required
-                  />
+                  /> */}
+
+                  <select
+                    onChange={(e) =>
+                      setInput({ ...input, country: e.target.value })
+                    }
+                    name='state'
+                    id='state'
+                  >
+                    {country.map((cont) => (
+                      <option key={cont.isoCode} value={cont.name}>
+                        {cont.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <div className='input-box file'>
                   <label htmlFor='file'>
@@ -281,10 +331,11 @@ const StyledForm = styled.div`
     width: 100%;
   }
   input,
-  textarea {
+  textarea,
+  select {
     width: 100%;
     border: 1px solid var(--grey);
-    padding: 0.1rem 0.5rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 2px;
     &:focus {
       outline: none;
@@ -292,9 +343,12 @@ const StyledForm = styled.div`
       box-shadow: 0 0 5px var(--blue);
     }
   }
+  select {
+    padding-left: 0rem;
+  }
 
   textarea {
-    height: 7rem;
+    height: 11.5rem;
     &::placeholder {
       font-size: 0.8rem;
     }
@@ -332,8 +386,9 @@ const StyledForm = styled.div`
   .close {
     font-size: 1rem;
     position: absolute;
-    right: 3%;
-    top: 3%;
+    right: 0%;
+    top: 0%;
+    transform: translate(-50%, 30%);
     font-size: 1.5rem;
     width: 2rem;
     color: var(--grey);

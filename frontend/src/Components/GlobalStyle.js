@@ -25,6 +25,11 @@ html{
     --blue: #0d6efd;
     --grey: #828282;
     scroll-behavior: smooth;
+    //Disable text selecting
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body{
@@ -36,6 +41,9 @@ body{
 }
 a{
     text-decoration: none;
+    :hover{
+        color: rgba(13,110,253,.9); 
+    }
     /* color: #333; */
 }
 a,button{

@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import About from "./Components/Pages/About";
 import Posts from "./Components/Pages/Posts";
 import PostDetails from "./Components/Pages/PostDetails";
+import FormData from "./Components/Pages/FormPage";
 
 function App() {
   return (
