@@ -20,7 +20,10 @@ const FormPage = ({ setModal }) => {
   const [closeIcon, setCloseIcon] = useState(true);
   const [error, setError] = useState("");
   // State SElection
-  const [countryy, setCountryy] = useState([]);
+  // const [countryy, setCountryy] = useState([]);
+
+  const [country, setCountry] = useState();
+  const [region, setRegion] = useState();
 
   const [input, setInput] = useState({
     name: "",
@@ -32,8 +35,6 @@ const FormPage = ({ setModal }) => {
     category: "",
     message: "",
   });
-  // setCountryy(input.country);
-  console.log(input.country);
 
   const onClickHandler = async (e) => {
     e.preventDefault();
@@ -65,21 +66,45 @@ const FormPage = ({ setModal }) => {
       setModal(false);
     }
   };
+  //Country and city handler
+  const regionHandler = (val) => {
+    setRegion(val);
+    setInput({ ...input, city: val });
+  };
 
-  // country list
-  const country = Country.getAllCountries();
-  const states = State.getAllStates();
+  const countryHandler = (val) => {
+    setCountry(val);
+    setInput({ ...input, country: val });
+  };
 
-  // if(country ===  )
-  // console.log(State.getStatesOfCountry("ANG"));
-
-  // country.map((cont) => {
-  //   if(country === cont.){
-
-  //   }else{
-
-  //   }
-  // });
+  // Category handler
+  const categories = [
+    "Sexual assault",
+    "Child Sexual Abuse",
+    "Marital rape",
+    "Incest(sexual intrusion between family members)",
+    "Sexual Exploitaion By Professionals",
+    "Belittling, shaming or humiliating you in public",
+    "Threats to publish nude photos or share intimate details with other's",
+    "Stalking",
+    "pornographic images to threaten or intimidate someone",
+    "sexual touching",
+    "Cyberstalking",
+    "Doxing",
+    "Trolling",
+    "insulting",
+    "Hidden Cameras",
+    "Forcing to take part in pornography",
+    "Touching or acting in any way you doesn't want",
+    "Forcing or pressuring into sexual acts",
+    "Forcing into prostitution",
+    "Slapping, Beating, Punching, Strangling, Kicking, Burning, Stabbing",
+    "keeping you imprisoned",
+    "Sexual Violence Within Prisons",
+    "Same Gender Assault",
+    "Gang Rape",
+    "Destroying immigration papers",
+  ];
 
   return (
     <StyledCard onClick={closeHandler} id='close'>
@@ -149,28 +174,30 @@ const FormPage = ({ setModal }) => {
                   />
                 </div>
                 <div className='input-box'>
+                  <label htmlFor='country'>
+                    Country <span className='mandatory'>*</span>
+                  </label>
+                  {/* Country Dropdown */}
+                  <CountryDropdown
+                    id='my-country-field-id'
+                    defaultOptionLabel='Select your country'
+                    value={country}
+                    onChange={(val) => countryHandler(val)}
+                  />
+                </div>
+                <div className='input-box'>
                   <label htmlFor='city'>
                     City <span className='mandatory'>*</span>
                   </label>
-                  {/* <input
-                    onChange={(e) =>
-                      setInput({ ...input, city: e.target.value })
-                    }
-                    autoComplete='off'
-                    type='text'
-                    name='city'
-                    value={input.city}
-                    id=''
-                    required
-                  /> */}
-
-                  <select name='country' id='country'>
-                    {country.map((cont) => (
-                      <option key={cont.isoCode} value={cont.name}>
-                        {cont.name}
-                      </option>
-                    ))}
-                  </select>
+                  {/* City Dropdown */}
+                  <RegionDropdown
+                    id='my-region-field-id'
+                    disableWhenEmpty={true}
+                    defaultOptionLabel='Select your city'
+                    country={country}
+                    value={region}
+                    onChange={(val) => regionHandler(val)}
+                  />
                 </div>
                 <div className='input-box'>
                   <label htmlFor='locality'>
@@ -188,36 +215,7 @@ const FormPage = ({ setModal }) => {
                     required
                   />
                 </div>
-                <div className='input-box'>
-                  <label htmlFor='country'>
-                    Country <span className='mandatory'>*</span>
-                  </label>
-                  {/* <input
-                    onChange={(e) =>
-                      setInput({ ...input, country: e.target.value })
-                    }
-                    autoComplete='off'
-                    type='text'
-                    name='country'
-                    value={input.country}
-                    id=''
-                    required
-                  /> */}
 
-                  <select
-                    onChange={(e) =>
-                      setInput({ ...input, country: e.target.value })
-                    }
-                    name='state'
-                    id='state'
-                  >
-                    {country.map((cont) => (
-                      <option key={cont.isoCode} value={cont.name}>
-                        {cont.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
                 <div className='input-box file'>
                   <label htmlFor='file'>
                     Choose a file to attach (optional)
@@ -246,7 +244,19 @@ const FormPage = ({ setModal }) => {
                   <label htmlFor='category'>
                     Select one <span className='mandatory'>*</span>
                   </label>
-                  <input
+                  <select
+                    required
+                    onChange={(e) =>
+                      setInput({ ...input, category: e.target.value })
+                    }
+                    name=''
+                    id='category'
+                  >
+                    {categories.map((cate) => (
+                      <option value={cate}>{cate}</option>
+                    ))}
+                  </select>
+                  {/* <input
                     onChange={(e) =>
                       setInput({ ...input, category: e.target.value })
                     }
@@ -256,7 +266,7 @@ const FormPage = ({ setModal }) => {
                     value={input.category}
                     id=''
                     required
-                  />
+                  /> */}
                 </div>
                 <div className='input-box'>
                   <label htmlFor='message'>
@@ -331,11 +341,10 @@ const StyledForm = styled.div`
     width: 100%;
   }
   input,
-  textarea,
-  select {
+  textarea {
     width: 100%;
     border: 1px solid var(--grey);
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.5rem;
     border-radius: 2px;
     &:focus {
       outline: none;
@@ -343,12 +352,23 @@ const StyledForm = styled.div`
       box-shadow: 0 0 5px var(--blue);
     }
   }
-  select {
-    padding-left: 0rem;
+
+  select,
+  #my-region-field-id,
+  #my-country-field-id {
+    width: 100%;
+    border: 1px solid var(--grey);
+    padding: 0.3rem 0.2rem;
+    border-radius: 2px;
+    &:focus {
+      outline: none;
+      border: 1px solid var(--blue);
+      box-shadow: 0 0 5px var(--blue);
+    }
   }
 
   textarea {
-    height: 11.5rem;
+    height: 7.7rem;
     &::placeholder {
       font-size: 0.8rem;
     }
@@ -371,12 +391,11 @@ const StyledForm = styled.div`
   }
   button {
     width: 100%;
-    height: 2rem;
     border: 1px solid var(--blue);
     border-radius: 2px;
     background: var(--blue);
     color: white;
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.5rem;
     margin-top: 1rem;
     img {
       width: 1.2rem;
