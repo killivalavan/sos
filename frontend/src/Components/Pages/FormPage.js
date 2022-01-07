@@ -1,26 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import submit from "../../img/submit-logo.png";
 import warning from "../../img/warning.png";
 import axios from "axios";
 import Thank from "../Thank";
+// Form validation
 import { formSchema } from "../Validation";
-import { setLocale } from "yup";
-// Country list
-import { Country, State, City } from "country-state-city";
-//
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
+//Importing Cate data
+import { Categories } from "../Categories-data";
+// Country npm
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+// Cehckbox
+import { Checkbox, Switch } from "pretty-checkbox-react";
+import "@djthoms/pretty-checkbox";
 
 const FormPage = ({ setModal }) => {
   const [valid, setValid] = useState(false);
   const [closeIcon, setCloseIcon] = useState(true);
   const [error, setError] = useState("");
-  // State SElection
-  // const [countryy, setCountryy] = useState([]);
+  // IsChecked
+  const [isChecked, setIsChecked] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
 
   const [country, setCountry] = useState();
   const [region, setRegion] = useState();
@@ -49,6 +49,7 @@ const FormPage = ({ setModal }) => {
       message: input.message,
     };
 
+    // Form Validation
     try {
       const validation = await formSchema.validate(formData);
     } catch (err) {
@@ -77,34 +78,27 @@ const FormPage = ({ setModal }) => {
     setInput({ ...input, country: val });
   };
 
-  // Category handler
-  const categories = [
-    "Sexual assault",
-    "Child Sexual Abuse",
-    "Marital rape",
-    "Incest(sexual intrusion between family members)",
-    "Sexual Exploitaion By Professionals",
-    "Belittling, shaming or humiliating you in public",
-    "Threats to publish nude photos or share intimate details with other's",
-    "Stalking",
-    "pornographic images to threaten or intimidate someone",
-    "sexual touching",
-    "Cyberstalking",
-    "Doxing",
-    "Trolling",
-    "insulting",
-    "Hidden Cameras",
-    "Forcing to take part in pornography",
-    "Touching or acting in any way you doesn't want",
-    "Forcing or pressuring into sexual acts",
-    "Forcing into prostitution",
-    "Slapping, Beating, Punching, Strangling, Kicking, Burning, Stabbing",
-    "keeping you imprisoned",
-    "Sexual Violence Within Prisons",
-    "Same Gender Assault",
-    "Gang Rape",
-    "Destroying immigration papers",
-  ];
+  // Slide Handler
+  const slideHandler = (e) => {
+    let isChecked = e.target.checked;
+    setIsChecked(isChecked);
+
+    if (isChecked) {
+      setInput({ ...input, name: "Anonymous" });
+    } else {
+      setInput({ ...input, name: "" });
+    }
+  };
+  // Checkbox Handler
+  const checkboxHandler = (e) => {
+    let isChecked = e.target.checked;
+    setIsSelected(isChecked);
+    if (isChecked) {
+      setInput({ ...input, date: new Date().toLocaleDateString("en-CA") });
+    } else {
+      setInput({ ...input, date: "" });
+    }
+  };
 
   return (
     <StyledCard onClick={closeHandler} id='close'>
@@ -145,12 +139,13 @@ const FormPage = ({ setModal }) => {
               <div className='left'>
                 <div className='input-box'>
                   <label htmlFor='name'>
-                    Nick Name <span className='mandatory'>*</span>
+                    Name <span className='mandatory'>*</span>
                   </label>
                   <input
                     onChange={(e) =>
                       setInput({ ...input, name: e.target.value })
                     }
+                    disabled={isChecked}
                     autoComplete='off'
                     type='text'
                     name='name'
@@ -158,6 +153,15 @@ const FormPage = ({ setModal }) => {
                     value={input.name}
                     required
                   />
+                </div>
+                <div className='Slider'>
+                  <Switch
+                    onChange={(e) => slideHandler(e)}
+                    className='switch'
+                    color='primary'
+                  >
+                    Do you want to hide your name?
+                  </Switch>
                 </div>
                 <div className='input-box'>
                   <label htmlFor='email'>Email (optional)</label>
@@ -217,10 +221,8 @@ const FormPage = ({ setModal }) => {
                 </div>
 
                 <div className='input-box file'>
-                  <label htmlFor='file'>
-                    Choose a file to attach (optional)
-                  </label>
-                  <input type='file' name='file' id='' />
+                  <label htmlFor='file'>Attach an evidence (optional)</label>
+                  <input type='file' name='file' title='' id='' />
                 </div>
               </div>
               <div className='right'>
@@ -238,11 +240,23 @@ const FormPage = ({ setModal }) => {
                     value={input.date}
                     id=''
                     required
+                    disabled={isSelected}
                   />
+                </div>
+                <div className='checkBox'>
+                  <Checkbox
+                    onChange={(e) => checkboxHandler(e)}
+                    className='check'
+                    color='primary'
+                    shape='curve'
+                    animation='smooth'
+                  >
+                    Check this for today's date
+                  </Checkbox>
                 </div>
                 <div className='input-box'>
                   <label htmlFor='category'>
-                    Select one <span className='mandatory'>*</span>
+                    What happen <span className='mandatory'>*</span>
                   </label>
                   <select
                     required
@@ -252,21 +266,15 @@ const FormPage = ({ setModal }) => {
                     name=''
                     id='category'
                   >
-                    {categories.map((cate) => (
-                      <option value={cate}>{cate}</option>
+                    <option value='starter' defaultValue>
+                      Select one
+                    </option>
+                    {Categories.map((cate) => (
+                      <option key={cate} value={cate}>
+                        {cate}
+                      </option>
                     ))}
                   </select>
-                  {/* <input
-                    onChange={(e) =>
-                      setInput({ ...input, category: e.target.value })
-                    }
-                    autoComplete='off'
-                    type='text'
-                    name='category'
-                    value={input.category}
-                    id=''
-                    required
-                  /> */}
                 </div>
                 <div className='input-box'>
                   <label htmlFor='message'>
@@ -280,7 +288,7 @@ const FormPage = ({ setModal }) => {
                     name='message'
                     id=''
                     value={input.message}
-                    placeholder='Describe in 1000 words'
+                    placeholder=''
                     required
                   ></textarea>
                 </div>
@@ -337,9 +345,6 @@ const StyledForm = styled.div`
     }
   }
 
-  .input-box {
-    width: 100%;
-  }
   input,
   textarea {
     width: 100%;
@@ -358,7 +363,7 @@ const StyledForm = styled.div`
   #my-country-field-id {
     width: 100%;
     border: 1px solid var(--grey);
-    padding: 0.3rem 0.2rem;
+    padding: 0.4rem 0.2rem;
     border-radius: 2px;
     &:focus {
       outline: none;
@@ -368,7 +373,7 @@ const StyledForm = styled.div`
   }
 
   textarea {
-    height: 7.7rem;
+    height: 8rem;
     &::placeholder {
       font-size: 0.8rem;
     }
@@ -377,6 +382,23 @@ const StyledForm = styled.div`
     margin: 0.9rem 0rem 0.2rem 0rem;
     color: var(--grey);
   }
+
+  /*Name Slider */
+  .Slider {
+    font-size: 0.7rem;
+    .switch {
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* Date Check box */
+  .checkBox {
+    font-size: 0.7rem;
+    .check {
+      margin-top: 0.4rem;
+    }
+  }
+
   .details {
     display: flex;
     flex-wrap: wrap;
@@ -389,6 +411,7 @@ const StyledForm = styled.div`
       margin-right: 5rem;
     }
   }
+
   button {
     width: 100%;
     border: 1px solid var(--blue);
@@ -428,6 +451,7 @@ const StyledForm = styled.div`
         border-radius: 2px;
         background-color: var(--blue);
         color: white;
+        font-size: 0.9rem;
       }
     }
   }

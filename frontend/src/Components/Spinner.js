@@ -112,12 +112,8 @@ export const SpinnerPosts = () => {
       <Skeleton className='avatar' animation='wave' variant='circular' />
       <div className='content'>
         <Skeleton animation='wave' className='title' />
-        <Skeleton
-          animation='wave'
-          className='body'
-          variant='rectangular'
-          width='100%'
-        />
+        <Skeleton animation='wave' className='title' />
+        <Skeleton animation='wave' className='title' width={150} />
       </div>
     </Spinner>
   );
@@ -131,13 +127,13 @@ const Spinner = styled.div`
     margin-left: 0.7rem;
   }
   .avatar {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
   }
   .title {
     width: 15rem;
     height: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
   }
   .body {
     height: 1.8rem;

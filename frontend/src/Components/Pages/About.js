@@ -4,7 +4,6 @@ import Footer from "../Footer";
 import styled from "styled-components";
 import image from "../../img/back.jpg";
 import back3 from "../../img/back3.jpg";
-import AboutCard from "../AboutCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDoubleDown,
@@ -243,6 +242,8 @@ const SectionTwo = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(400px, auto));
   grid-gap: 2rem;
   justify-items: center;
+  position: relative;
+
   .box {
     height: 23vh;
     width: 100%;

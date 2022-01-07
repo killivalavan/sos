@@ -40,7 +40,6 @@ const Posts = () => {
               placeholder={<SpinnerPosts />}
             >
               {!isLoading && (
-                // <LazyLoad height={200}>
                 <Message
                   key={post._id}
                   id={post._id}
@@ -48,7 +47,6 @@ const Posts = () => {
                   message={post.message}
                   date={post.updatedAt}
                 />
-                // </LazyLoad>
               )}
             </LazyLoad>
           ))}
@@ -63,7 +61,7 @@ const StyledPost = styled.div`
   min-height: 100vh;
   width: 100%;
   background: #f2f2f2;
-  padding: 4rem 0rem 2rem 0rem;
+  padding: 2rem 0rem 2rem 0rem;
 `;
 
 const StyledMessage = styled.div`

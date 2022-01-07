@@ -3,6 +3,8 @@ import styled from "styled-components";
 import logo from "../img/logo.png";
 import { Link } from "react-router-dom";
 import sign from "../img/female-sign.png";
+// Framer motion
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -18,12 +20,34 @@ const Header = () => {
     document.body.style.overflow = "auto";
   }
 
+  // Farmer motion
+  const titleAnim = {
+    hidden: { x: -5, opacity: 0 },
+    show: {
+      x: 2,
+      opacity: 1,
+      transition: { duration: 1, delay: 1, ease: "easeInOut" },
+    },
+  };
+  const logoAnim = {
+    hidden: { x: -20, y: 20, scale: 0 },
+    show: { x: 2, y: 0, opacity: 1, scale: 1, transition: { duration: 1 } },
+  };
+
   return (
     <StyledNav>
       <div id='logo'>
-        <Link to='/'>
-          <img src={logo} alt='' />
-          SOS
+        <Link className='title' to='/'>
+          <motion.img
+            src={logo}
+            alt=''
+            variants={logoAnim}
+            initial='hidden'
+            animate='show'
+          />
+          <motion.h3 variants={titleAnim} initial='hidden' animate='show'>
+            SOS
+          </motion.h3>
         </Link>
         {!open && (
           <svg
@@ -114,7 +138,17 @@ const StyledNav = styled.div`
     width: 2rem;
     img {
       width: 2rem;
+      height: 2rem;
       margin-right: 0.5rem;
+    }
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    h3 {
+      margin-bottom: 0.4rem;
+      font-size: 2rem;
+      font-weight: 600;
     }
   }
 

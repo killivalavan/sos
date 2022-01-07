@@ -102,7 +102,7 @@ const PostDetails = ({ id }) => {
             )}
             {/* </div> */}
             {!isloading ? (
-              <div className='item'>
+              <div className='item category'>
                 <p>What happen</p>
                 <h6>{postDetails.category}</h6>
               </div>
@@ -213,12 +213,18 @@ const Info = styled.div`
       text-transform: capitalize;
     }
   }
+  .category {
+    max-width: 30%;
+  }
   @media screen and (max-width: 678px) {
     display: block;
     margin-top: 2rem;
 
     p {
       margin: 1.3rem 0rem;
+    }
+    .category {
+      max-width: 100%;
     }
   }
 `;
