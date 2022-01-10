@@ -8,6 +8,9 @@ import Avatar, { genConfig } from "react-nice-avatar";
 import Skeleton from "@mui/material/Skeleton";
 import { SpinnerTitle, SpinnerMsg } from "../Spinner";
 
+// Framer-motion
+import { motion } from "framer-motion";
+
 const PostDetails = ({ id }) => {
   const [postDetails, setPostDetails] = useState([]);
   const [isloading, setIsLoading] = useState(true);
@@ -129,7 +132,7 @@ const PostDetails = ({ id }) => {
   );
 };
 
-const Shadow = styled.div`
+const Shadow = styled(motion.div)`
   min-height: 100vh;
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
@@ -140,7 +143,7 @@ const Shadow = styled.div`
   overflow-y: scroll;
 `;
 
-const Details = styled.div`
+const Details = styled(motion.div)`
   background: white;
   margin-top: 1rem;
   color: black;
@@ -176,13 +179,17 @@ const Conent = styled.div`
   }
   .close {
     position: absolute;
-    top: -5%;
-    right: -5%;
-    transform: translate(5%, -5%);
+    top: 0;
+    right: 0;
+    transform: translate(130%, -130%);
     width: 2rem;
     height: 2rem;
     color: #c0c0c0;
     cursor: pointer;
+    &:hover {
+      color: #c0c0c0;
+      opacity: 0.5;
+    }
   }
   @media screen and (max-width: 678px) {
     .close {

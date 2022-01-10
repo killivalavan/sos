@@ -28,7 +28,7 @@ const Message = ({ id, name, message, date }) => {
 
   return (
     <>
-      <Card>
+      <Card layoutId={id}>
         <div className='avatar'>
           <Avatar style={{ width: "3rem", height: "3rem" }} {...config} />
         </div>
@@ -74,6 +74,10 @@ const Card = styled.div`
   justify-content: space-between;
   font-size: 0.7rem;
   border-radius: 10px;
+  transition: transform 0.5s ease-out;
+  &:hover {
+    transform: translate(0px, -5px);
+  }
   .avatar {
     margin-top: 0.6rem;
   }

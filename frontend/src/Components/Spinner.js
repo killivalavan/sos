@@ -9,18 +9,8 @@ export const SpinnerTitle = () => {
   return (
     <StyledSpinner>
       <div className='spinner'>
-        <Skeleton
-          className='spinnerMsg'
-          sx={{ mb: 1 }}
-          variant='p'
-          animation='wave'
-        />
-        <Skeleton
-          variant='rectangular'
-          animation='wave'
-          width={80}
-          height={10}
-        />
+        <Skeleton className='spinnerMsg' height={20} animation='wave' />
+        <Skeleton animation='wave' width={80} height={20} />
       </div>
     </StyledSpinner>
   );
@@ -46,48 +36,17 @@ export const SpinnerMsg = () => {
   return (
     <div>
       <MsgSpinner>
-        <Skeleton
-          sx={{ mt: 6 }}
-          variant='rectangular'
-          animation='wave'
-          height={10}
-        />
-        <Skeleton
-          sx={{ mt: 2 }}
-          variant='rectangular'
-          animation='wave'
-          height={10}
-        />
-        <Skeleton
-          sx={{ mt: 2 }}
-          variant='rectangular'
-          animation='wave'
-          height={10}
-        />
-        <Skeleton
-          sx={{ mt: 2 }}
-          variant='rectangular'
-          animation='wave'
-          height={10}
-        />
-        <Skeleton
-          sx={{ mt: 2 }}
-          variant='rectangular'
-          animation='wave'
-          height={10}
-        />
-        <Skeleton
-          sx={{ mt: 2 }}
-          variant='rectangular'
-          animation='wave'
-          height={10}
-        />
+        <Skeleton sx={{ mt: 6 }} animation='wave' height={20} />
+        <Skeleton sx={{ mt: 1 }} animation='wave' height={20} />
+        <Skeleton sx={{ mt: 1 }} animation='wave' height={20} />
+        <Skeleton sx={{ mt: 1 }} animation='wave' height={20} />
+        <Skeleton sx={{ mt: 1 }} animation='wave' height={20} />
+        <Skeleton sx={{ mt: 1 }} animation='wave' height={20} />
         <Skeleton
           className='lastLine'
-          sx={{ mt: 2 }}
-          variant='rectangular'
+          sx={{ mt: 1 }}
           animation='wave'
-          height={10}
+          height={20}
         />
       </MsgSpinner>
     </div>
@@ -96,7 +55,7 @@ export const SpinnerMsg = () => {
 
 const MsgSpinner = styled.div`
   .lastLine {
-    width: 90%;
+    width: 80%;
   }
   @media screen and (max-width: 678px) {
     .lastLine {

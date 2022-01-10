@@ -13,6 +13,11 @@ import {
 import Counter from "../Counter";
 import Map from "../Map";
 import { useHistory } from "react-router-dom";
+// Reveal
+import { Fade } from "react-reveal";
+// Framer-motion
+import { motion } from "framer-motion";
+import { heartAnim } from "../Animation";
 
 const About = () => {
   // To hide scrolldown icon
@@ -34,16 +39,16 @@ const About = () => {
             <h4>
               <FontAwesomeIcon className='icon' icon={faQuoteLeft} />
               When it comes to abuse, you believe there’s no way out. There is
-              always help. There is always a way out{" "}
+              always help. There is always a way out
               <FontAwesomeIcon className='icon' icon={faQuoteRight} />
             </h4>
           </div>
-          <Heart>
+          <Heart variants={heartAnim} initial='hidden' animate='show'>
             <div className='heart'></div>
           </Heart>
           <Arrow>
             <div
-              className={` arrow bounce ${
+              className={` arrow Fade ${
                 hash === "#NextSection" ? "inactive" : "active"
               }`}
             >
@@ -60,6 +65,7 @@ const About = () => {
         </NextSection>
 
         <SectionTwo id='SectionTwo'>
+          {/* <Fade left> */}
           <div className='box Our'>
             <h6>
               <span>Our</span> motto?
@@ -71,6 +77,7 @@ const About = () => {
               Labore, nam!
             </p>
           </div>
+          {/* </Fade> */}
           <div className='box what'>
             <h6>
               <span>What</span> we do?
@@ -81,28 +88,32 @@ const About = () => {
               facilis?
             </p>
           </div>
-          <div className='box how'>
-            <h6>
-              <span>How</span> did it work?
-              <div className='line'></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Labore, nam!
-            </p>
-          </div>
-          <div className='box trust'>
-            <h6>
-              <span>Trust</span> us?
-              <div className='line'></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Labore, nam!
-            </p>
-          </div>
+          <Fade right>
+            <div className='box how'>
+              <h6>
+                <span>How</span> did it work?
+                <div className='line'></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Labore, nam!
+              </p>
+            </div>
+          </Fade>
+          <Fade left>
+            <div className='box trust'>
+              <h6>
+                <span>Trust</span> us?
+                <div className='line'></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Labore, nam!
+              </p>
+            </div>
+          </Fade>
           <div className='box help'>
             <h6>
               <span>We'll</span> shout for you
@@ -114,48 +125,52 @@ const About = () => {
               Labore, nam!
             </p>
           </div>
-          <div className='box just'>
-            <h6>
-              <span>Just</span> 5 minutes!
-              <div className='line'></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis?
-            </p>
-          </div>
-          <div className='box just'>
-            <h6>
-              <span>Made</span> for Women
-              <div className='line'></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis?
-            </p>
-          </div>
-
+          <Fade right>
+            <div className='box just'>
+              <h6>
+                <span>Just</span> 5 minutes!
+                <div className='line'></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis?
+              </p>
+            </div>
+          </Fade>
+          <Fade left>
+            <div className='box just'>
+              <h6>
+                <span>Made</span> for Women
+                <div className='line'></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis?
+              </p>
+            </div>
+          </Fade>
           <div className='box just'>
             <h6>
               <span>Attach</span> your evidence!
               <div className='line'></div>
             </h6>
-
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
               facilis?
             </p>
           </div>
-          <div className='box just'>
-            <h6>
-              <span>Contact</span> us!
-              <div className='line'></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis?
-            </p>
-          </div>
+          <Fade right>
+            <div className='box just'>
+              <h6>
+                <span>Contact</span> us!
+                <div className='line'></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis?
+              </p>
+            </div>
+          </Fade>
         </SectionTwo>
         <Footer />
       </Container>
@@ -232,7 +247,7 @@ const NextSection = styled.div`
   min-height: 80vh;
 `;
 
-const SectionTwo = styled.div`
+const SectionTwo = styled(motion.div)`
   scroll-snap-align: start;
   min-height: 70vh;
   width: 90%;
@@ -263,6 +278,7 @@ const SectionTwo = styled.div`
   }
   h6 {
     font-size: 1.2rem;
+    color: var(--blue);
   }
   .box.Our {
     border-left: 7px solid var(--blue);
@@ -276,7 +292,7 @@ const SectionTwo = styled.div`
   }
 `;
 
-const Heart = styled.div`
+const Heart = styled(motion.div)`
   position: absolute;
   right: 25%;
   top: 35%;
@@ -290,6 +306,10 @@ const Heart = styled.div`
     transform: rotate(-45deg);
     box-shadow: -10px 10px 90px #f20044;
     animation: heart 0.6s linear infinite;
+    &:hover {
+      animation: none;
+      cursor: pointer;
+    }
   }
 
   .heart::before {
@@ -324,6 +344,7 @@ const Heart = styled.div`
       transform: rotate(-45deg) scale(1);
     }
   }
+
   @media screen and (max-width: 866px) {
     display: none;
   }
@@ -345,13 +366,13 @@ const Arrow = styled.div`
     text-align: center;
     margin: 8% 0;
   }
-  .bounce {
-    -moz-animation: bounce 2s infinite;
-    -webkit-animation: bounce 2s infinite;
-    animation: bounce 2s infinite;
+  .Fade {
+    -moz-animation: Fade 2s infinite;
+    -webkit-animation: Fade 2s infinite;
+    animation: Fade 2s infinite;
   }
 
-  @keyframes bounce {
+  @keyframes Fade {
     0%,
     20%,
     50%,
