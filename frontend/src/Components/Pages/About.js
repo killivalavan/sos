@@ -4,6 +4,7 @@ import Footer from "../Footer";
 import styled from "styled-components";
 import image from "../../img/back.jpg";
 import back3 from "../../img/back3.jpg";
+import scrollIcon from "../../img/icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDoubleDown,
@@ -48,7 +49,7 @@ const About = () => {
           </Heart>
           <Arrow>
             <div
-              className={` arrow Fade ${
+              className={`arrow Fade ${
                 hash === "#NextSection" ? "inactive" : "active"
               }`}
             >
@@ -57,11 +58,14 @@ const About = () => {
               </a>
             </div>
           </Arrow>
+          <div className='scroll-icon'>
+            <img src={scrollIcon} alt='not found' />
+          </div>
         </SectionOne>
 
         <NextSection>
           <Map id='NextSection' />
-          <Counter />
+          <Counter id='counterSection' />
         </NextSection>
 
         <SectionTwo id='SectionTwo'>
@@ -189,7 +193,7 @@ const Container = styled.div`
   overflow-y: scroll;
   scroll-behavior: smooth;
   @media screen and (max-width: 866px) {
-    scroll-snap-type: none;
+    /* scroll-snap-type: none; */
     overflow-y: none;
   }
 `;
@@ -229,6 +233,17 @@ const SectionOne = styled.div`
       margin: 0rem 0.9rem;
     }
   }
+  .scroll-icon {
+    display: none;
+    position: absolute;
+    bottom: 3%;
+    left: 45%;
+    width: 3rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   @media screen and (max-width: 866px) {
     background-image: linear-gradient(
         180deg,
@@ -240,11 +255,19 @@ const SectionOne = styled.div`
     .title {
       display: flex;
     }
+    .scroll-icon {
+      display: block;
+    }
   }
 `;
+
 const NextSection = styled.div`
   scroll-snap-align: start;
   min-height: 80vh;
+  @media screen and (max-width: 866px) {
+    min-height: 90vh;
+    scroll-snap-align: end;
+  }
 `;
 
 const SectionTwo = styled(motion.div)`
@@ -370,6 +393,9 @@ const Arrow = styled.div`
     -moz-animation: Fade 2s infinite;
     -webkit-animation: Fade 2s infinite;
     animation: Fade 2s infinite;
+  }
+  @media screen and (max-width: 866px) {
+    display: none;
   }
 
   @keyframes Fade {

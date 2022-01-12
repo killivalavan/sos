@@ -11,7 +11,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='quotes'>
-          Made for a women <span>❤️</span>
+          Made with <span>❤️</span> for Women
         </div>
       </div>
     </StyledFooter>
