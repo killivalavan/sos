@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import PostRoute from "./Routes/Post.js";
 import dotenv from "dotenv";
 import cors from "cors";
+// Delpoyment
 import * as path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
