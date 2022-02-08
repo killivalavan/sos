@@ -25,7 +25,7 @@ const LandingPage = () => {
         <Carousel pause={false} controls={false} indicators={false}>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img1} alt="First slide" />
+              <img className="d-block w-100" src={img1} alt="" />
             </div>
             <Carousel.Caption>
               <h3>First slide label</h3>
