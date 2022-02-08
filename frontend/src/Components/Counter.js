@@ -12,9 +12,9 @@ import { Fade } from "react-reveal";
 const Counter = ({ counterSection }) => {
   return (
     <StyledCounter id={counterSection}>
-      <div className='counter'>
-        <div className='one'>
-          <FontAwesomeIcon className='icon' size='3x' icon={faGlobeAsia} />
+      <div className="counter">
+        <div className="one">
+          <FontAwesomeIcon className="icon" size="3x" icon={faGlobeAsia} />
           <Fade>
             <h3>
               <CountUp duration={1.5} delay={0} start={1} end={11} /> +
@@ -22,8 +22,8 @@ const Counter = ({ counterSection }) => {
           </Fade>
           <p>Countries with high crime rate in the world 2021</p>
         </div>
-        <div className='two'>
-          <FontAwesomeIcon className='icon' size='3x' icon={faFemale} />
+        <div className="two">
+          <FontAwesomeIcon className="icon" size="3x" icon={faFemale} />
           <Fade>
             <h3>
               {" "}
@@ -35,8 +35,8 @@ const Counter = ({ counterSection }) => {
             countries
           </p>
         </div>
-        <div className='three'>
-          <FontAwesomeIcon className='icon' size='3x' icon={faUsers} />
+        <div className="three">
+          <FontAwesomeIcon className="icon" size="3x" icon={faUsers} />
           <Fade>
             <h3>
               734,

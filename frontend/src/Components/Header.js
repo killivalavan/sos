@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import logo from "../img/logo.png";
 import { Link } from "react-router-dom";
-import sign from "../img/female-sign.png";
+
 // Framer motion
 import { motion } from "framer-motion";
 
@@ -36,33 +36,33 @@ const Header = () => {
 
   return (
     <StyledNav>
-      <div id='logo'>
-        <Link className='title' to='/'>
+      <div id="logo">
+        <Link className="title" to="/">
           <motion.img
             src={logo}
-            alt=''
+            alt=""
             variants={logoAnim}
-            initial='hidden'
-            animate='show'
+            initial="hidden"
+            animate="show"
           />
-          <motion.h3 variants={titleAnim} initial='hidden' animate='show'>
+          <motion.h3 variants={titleAnim} initial="hidden" animate="show">
             SOS
           </motion.h3>
         </Link>
         {!open && (
           <svg
             onClick={onClickHandler}
-            xmlns='http://www.w3.org/2000/svg'
-            className='hamburger'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
+            xmlns="http://www.w3.org/2000/svg"
+            className="hamburger"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
             <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
+              strokeLinecap="round"
+              strokeLinejoin="round"
               strokeWidth={2}
-              d='M4 6h16M4 12h16M4 18h16'
+              d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
         )}
@@ -70,16 +70,16 @@ const Header = () => {
           <svg
             onClick={onClickHandler}
             className={`close ${open ? "active" : ""}`}
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
             <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
+              strokeLinecap="round"
+              strokeLinejoin="round"
               strokeWidth={2}
-              d='M6 18L18 6M6 6l12 12'
+              d="M6 18L18 6M6 6l12 12"
             />
           </svg>
         )}
@@ -89,13 +89,13 @@ const Header = () => {
         className={`nav-links ${open ? "active" : ""}`}
       >
         <li>
-          <Link to='/'>Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to='/posts'>Posts</Link>
+          <Link to="/posts">Posts</Link>
         </li>
         <li>
-          <Link to='/about'>About</Link>
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </StyledNav>

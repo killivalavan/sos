@@ -4,13 +4,13 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <StyledFooter>
-      <div className='content'>
-        <div className='copyright'>
+      <div className="content">
+        <div className="copyright">
           <div>
             <span>&copy;</span>SOS 2022. All Rights Reserved.
           </div>
         </div>
-        <div className='quotes'>
+        <div className="quotes">
           Made with <span>❤️</span> for Women
         </div>
       </div>

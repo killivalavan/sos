@@ -9,11 +9,11 @@ import en from "javascript-time-ago/locale/en.json";
 TimeAgo.addDefaultLocale(en);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById("root")
 );
 

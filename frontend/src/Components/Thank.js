@@ -8,7 +8,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 const Thank = ({ setCloseIcon }) => {
   useEffect(() => {
     setCloseIcon(false);
-  }, []);
+  }, [setCloseIcon]);
 
   //To check image loaded
   const [load, setLoad] = useState(false);
@@ -16,9 +16,9 @@ const Thank = ({ setCloseIcon }) => {
   return (
     <>
       <StyledThank>
-        <img onLoad={() => setLoad(true)} src={icon} alt='Thanks Icon' />
+        <img onLoad={() => setLoad(true)} src={icon} alt="Thanks Icon" />
         {load ? (
-          <div className='text'>
+          <div className="text">
             <h3>Thank You!</h3>
             <p>
               Your submission has been received, We'll review them and post!

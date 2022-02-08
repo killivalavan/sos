@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import Footer from "../Footer";
 import styled from "styled-components";
@@ -35,17 +35,17 @@ const About = () => {
   return (
     <Shadow>
       <Container>
-        <SectionOne id='SectionOne'>
-          <div className='title'>
+        <SectionOne id="SectionOne">
+          <div className="title">
             <h4>
-              <FontAwesomeIcon className='icon' icon={faQuoteLeft} />
+              <FontAwesomeIcon className="icon" icon={faQuoteLeft} />
               When it comes to abuse, you believe there’s no way out. There is
               always help. There is always a way out
-              <FontAwesomeIcon className='icon' icon={faQuoteRight} />
+              <FontAwesomeIcon className="icon" icon={faQuoteRight} />
             </h4>
           </div>
-          <Heart variants={heartAnim} initial='hidden' animate='show'>
-            <div className='heart'></div>
+          <Heart variants={heartAnim} initial="hidden" animate="show">
+            <div className="heart"></div>
           </Heart>
           <Arrow>
             <div
@@ -53,27 +53,27 @@ const About = () => {
                 hash === "#NextSection" ? "inactive" : "active"
               }`}
             >
-              <a href='#NextSection'>
-                <FontAwesomeIcon size='2x' icon={faAngleDoubleDown} />
+              <a href="#NextSection">
+                <FontAwesomeIcon size="2x" icon={faAngleDoubleDown} />
               </a>
             </div>
           </Arrow>
-          <div className='scroll-icon'>
-            <img src={scrollIcon} alt='not found' />
+          <div className="scroll-icon">
+            <img src={scrollIcon} alt="not found" />
           </div>
         </SectionOne>
 
         <NextSection>
-          <Map id='NextSection' />
-          <Counter id='counterSection' />
+          <Map id="NextSection" />
+          <Counter id="counterSection" />
         </NextSection>
 
-        <SectionTwo id='SectionTwo'>
+        <SectionTwo id="SectionTwo">
           {/* <Fade left> */}
-          <div className='box Our'>
+          <div className="box Our">
             <h6>
               <span>Our</span> motto?
-              <div className='line'></div>
+              <div className="line"></div>
             </h6>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
@@ -82,10 +82,10 @@ const About = () => {
             </p>
           </div>
           {/* </Fade> */}
-          <div className='box what'>
+          <div className="box what">
             <h6>
               <span>What</span> we do?
-              <div className='line'></div>
+              <div className="line"></div>
             </h6>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
@@ -93,10 +93,10 @@ const About = () => {
             </p>
           </div>
           <Fade right>
-            <div className='box how'>
+            <div className="box how">
               <h6>
                 <span>How</span> did it work?
-                <div className='line'></div>
+                <div className="line"></div>
               </h6>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
@@ -106,10 +106,10 @@ const About = () => {
             </div>
           </Fade>
           <Fade left>
-            <div className='box trust'>
+            <div className="box trust">
               <h6>
                 <span>Trust</span> us?
-                <div className='line'></div>
+                <div className="line"></div>
               </h6>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
@@ -118,10 +118,10 @@ const About = () => {
               </p>
             </div>
           </Fade>
-          <div className='box help'>
+          <div className="box help">
             <h6>
               <span>We'll</span> shout for you
-              <div className='line'></div>
+              <div className="line"></div>
             </h6>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
@@ -130,10 +130,10 @@ const About = () => {
             </p>
           </div>
           <Fade right>
-            <div className='box just'>
+            <div className="box just">
               <h6>
                 <span>Just</span> 5 minutes!
-                <div className='line'></div>
+                <div className="line"></div>
               </h6>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
@@ -142,10 +142,10 @@ const About = () => {
             </div>
           </Fade>
           <Fade left>
-            <div className='box just'>
+            <div className="box just">
               <h6>
                 <span>Made</span> for Women
-                <div className='line'></div>
+                <div className="line"></div>
               </h6>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
@@ -153,10 +153,10 @@ const About = () => {
               </p>
             </div>
           </Fade>
-          <div className='box just'>
+          <div className="box just">
             <h6>
               <span>Attach</span> your evidence!
-              <div className='line'></div>
+              <div className="line"></div>
             </h6>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
@@ -164,10 +164,10 @@ const About = () => {
             </p>
           </div>
           <Fade right>
-            <div className='box just'>
+            <div className="box just">
               <h6>
                 <span>Contact</span> us!
-                <div className='line'></div>
+                <div className="line"></div>
               </h6>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,

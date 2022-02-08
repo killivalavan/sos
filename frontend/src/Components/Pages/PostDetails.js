@@ -11,10 +11,12 @@ import { SpinnerTitle, SpinnerMsg } from "../Spinner";
 // Framer-motion
 import { motion } from "framer-motion";
 
+//To change date format
+import moment from "moment";
+
 const PostDetails = ({ id }) => {
   const [postDetails, setPostDetails] = useState([]);
   const [isloading, setIsLoading] = useState(true);
-  const [close, setClose] = useState(false);
   const history = useHistory();
 
   // shadow closer
@@ -44,33 +46,33 @@ const PostDetails = ({ id }) => {
       setPostDetails(data);
       setIsLoading(!isloading);
     };
-    return getPostDetails();
+    getPostDetails();
   }, []);
 
   return (
-    <Shadow onClick={closeHandler} className='shadow'>
+    <Shadow onClick={closeHandler} className="shadow">
       <Details>
         <Conent>
-          <div onClick={closeIconHandler} className='close'>
+          <div onClick={closeIconHandler} className="close">
             <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-6 w-6'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
               <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 strokeWidth={2}
-                d='M6 18L18 6M6 6l12 12'
+                d="M6 18L18 6M6 6l12 12"
               />
             </svg>
           </div>
-          <div className='avatar'>
+          <div className="avatar">
             <Avatar style={{ width: "7rem", height: "7rem" }} {...config} />
           </div>
-          <div className='name'>
+          <div className="name">
             {!isloading ? (
               <h4>{postDetails.name}</h4>
             ) : (
@@ -80,7 +82,7 @@ const PostDetails = ({ id }) => {
           <Info>
             {/* <div> */}
             {!isloading ? (
-              <div className='item'>
+              <div className="item">
                 <p>Country</p>
                 <h6>{postDetails.country}</h6>
               </div>
@@ -88,7 +90,7 @@ const PostDetails = ({ id }) => {
               <SpinnerTitle />
             )}
             {!isloading ? (
-              <div className='item'>
+              <div className="item">
                 <p>City</p>
                 <h6>{postDetails.city}</h6>
               </div>
@@ -96,7 +98,7 @@ const PostDetails = ({ id }) => {
               <SpinnerTitle />
             )}
             {!isloading ? (
-              <div className='item'>
+              <div className="item">
                 <p>Locality</p>
                 <h6>{postDetails.locality}</h6>
               </div>
@@ -105,7 +107,7 @@ const PostDetails = ({ id }) => {
             )}
             {/* </div> */}
             {!isloading ? (
-              <div className='item category'>
+              <div className="item category">
                 <p>What happen</p>
                 <h6>{postDetails.category}</h6>
               </div>
@@ -113,9 +115,9 @@ const PostDetails = ({ id }) => {
               <SpinnerTitle />
             )}
             {!isloading ? (
-              <div className='item'>
+              <div className="item">
                 <p>When</p>
-                <h6>{postDetails.date}</h6>
+                <h6>{moment(postDetails.date).format("MMM DD, YYYY")}</h6>
               </div>
             ) : (
               <SpinnerTitle />

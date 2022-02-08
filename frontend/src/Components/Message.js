@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
 // Avatar
@@ -29,31 +29,31 @@ const Message = ({ id, name, message, date }) => {
   return (
     <>
       <Card layoutId={id}>
-        <div className='avatar'>
+        <div className="avatar">
           <Avatar style={{ width: "3rem", height: "3rem" }} {...config} />
         </div>
-        <div className='card-body'>
-          <div className='name'>
-            <Link className='more-info' to={`/posts/${id}`}>
+        <div className="card-body">
+          <div className="name">
+            <Link className="more-info" to={`/posts/${id}`}>
               {name}
             </Link>
-            <span className='date'>
-              <ReactTimeAgo date={Date.parse(date)} locale='en-US' />
+            <span className="date">
+              <ReactTimeAgo date={Date.parse(date)} locale="en-US" />
             </span>
           </div>
-          <div className='message'>
+          <div className="message">
             {message.substring(0, 180)}
             {message.length >= 150 && (
-              <Link className='read-more' to={`/posts/${id}`}>
+              <Link className="read-more" to={`/posts/${id}`}>
                 {" "}
                 Read more
               </Link>
             )}
           </div>
-          <div className='message-mobile-view'>
+          <div className="message-mobile-view">
             {message.substring(0, 270)}
             {message.length >= 160 && (
-              <Link className='read-more' to={`/posts/${id}`}>
+              <Link className="read-more" to={`/posts/${id}`}>
                 {" "}
                 Read more
               </Link>

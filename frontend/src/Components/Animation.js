@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 export const heartAnim = {
   hidden: { opacity: 0 },
   show: {

@@ -1,7 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import submit from "../../img/submit-logo.png";
-import warning from "../../img/warning.png";
 import axios from "axios";
 import Thank from "../Thank";
 // Form validation
@@ -101,33 +100,32 @@ const FormPage = ({ setModal }) => {
   };
 
   return (
-    <StyledCard onClick={closeHandler} id='close'>
+    <StyledCard onClick={closeHandler} id="close">
       <StyledForm>
         {closeIcon && (
-          <div className='close' onClick={() => setModal(false)}>
+          <div className="close" onClick={() => setModal(false)}>
             <svg
-              className='close'
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-2 w-2'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
+              className="close"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
               <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 strokeWidth={2}
-                d='M6 18L18 6M6 6l12 12'
+                d="M6 18L18 6M6 6l12 12"
               />
             </svg>
           </div>
         )}
         {!valid && (
-          <div className='title'>
+          <div className="title">
             <h3>Tell Us</h3>
             <small>We are here to help you !!!</small>
             {error && (
-              <div id='alert'>
+              <div id="alert">
                 <p>{error}</p>
               </div>
             )}
@@ -135,138 +133,138 @@ const FormPage = ({ setModal }) => {
         )}
         {!valid ? (
           <form>
-            <div className='details'>
-              <div className='left'>
-                <div className='input-box'>
-                  <label htmlFor='name'>
-                    Name <span className='mandatory'>*</span>
+            <div className="details">
+              <div className="left">
+                <div className="input-box">
+                  <label htmlFor="name">
+                    Name <span className="mandatory">*</span>
                   </label>
                   <input
                     onChange={(e) =>
                       setInput({ ...input, name: e.target.value })
                     }
                     disabled={isChecked}
-                    autoComplete='off'
-                    type='text'
-                    name='name'
-                    id=''
+                    autoComplete="off"
+                    type="text"
+                    name="name"
+                    id=""
                     value={input.name}
                     required
                   />
                 </div>
-                <div className='Slider'>
+                <div className="Slider">
                   <Switch
                     onChange={(e) => slideHandler(e)}
-                    className='switch'
-                    color='primary'
+                    className="switch"
+                    color="primary"
                   >
                     Do you want to hide your name?
                   </Switch>
                 </div>
-                <div className='input-box'>
-                  <label htmlFor='email'>Email (optional)</label>
+                <div className="input-box">
+                  <label htmlFor="email">Email (optional)</label>
                   <input
                     onChange={(e) =>
                       setInput({ ...input, mail: e.target.value })
                     }
-                    autoComplete='off'
-                    type='email'
-                    name='email'
-                    id=''
+                    autoComplete="off"
+                    type="email"
+                    name="email"
+                    id=""
                     value={input.mail}
                     required
                   />
                 </div>
-                <div className='input-box'>
-                  <label htmlFor='country'>
-                    Country <span className='mandatory'>*</span>
+                <div className="input-box">
+                  <label htmlFor="country">
+                    Country <span className="mandatory">*</span>
                   </label>
                   {/* Country Dropdown */}
                   <CountryDropdown
-                    id='my-country-field-id'
-                    defaultOptionLabel='Select your country'
+                    id="my-country-field-id"
+                    defaultOptionLabel="Select your country"
                     value={country}
                     onChange={(val) => countryHandler(val)}
                   />
                 </div>
-                <div className='input-box'>
-                  <label htmlFor='city'>
-                    City <span className='mandatory'>*</span>
+                <div className="input-box">
+                  <label htmlFor="city">
+                    City <span className="mandatory">*</span>
                   </label>
                   {/* City Dropdown */}
                   <RegionDropdown
-                    id='my-region-field-id'
+                    id="my-region-field-id"
                     disableWhenEmpty={true}
-                    defaultOptionLabel='Select your city'
+                    defaultOptionLabel="Select your city"
                     country={country}
                     value={region}
                     onChange={(val) => regionHandler(val)}
                   />
                 </div>
-                <div className='input-box'>
-                  <label htmlFor='locality'>
-                    Locality <span className='mandatory'>*</span>
+                <div className="input-box">
+                  <label htmlFor="locality">
+                    Locality <span className="mandatory">*</span>
                   </label>
                   <input
                     onChange={(e) =>
                       setInput({ ...input, locality: e.target.value })
                     }
-                    autoComplete='off'
-                    type='text'
-                    name='locality'
+                    autoComplete="off"
+                    type="text"
+                    name="locality"
                     value={input.locality}
-                    id=''
+                    id=""
                     required
                   />
                 </div>
 
-                <div className='input-box file'>
-                  <label htmlFor='file'>Attach an evidence (optional)</label>
-                  <input type='file' name='file' title='' id='' />
+                <div className="input-box file">
+                  <label htmlFor="file">Attach an evidence (optional)</label>
+                  <input type="file" name="file" title="" id="" />
                 </div>
               </div>
-              <div className='right'>
-                <div className='input-box'>
-                  <label htmlFor='date'>
-                    When <span className='mandatory'>*</span>
+              <div className="right">
+                <div className="input-box">
+                  <label htmlFor="date">
+                    When <span className="mandatory">*</span>
                   </label>
                   <input
                     onChange={(e) =>
                       setInput({ ...input, date: e.target.value })
                     }
-                    autoComplete='off'
-                    type='date'
-                    name='date'
+                    autoComplete="off"
+                    type="date"
+                    name="date"
                     value={input.date}
-                    id=''
+                    id=""
                     required
                     disabled={isSelected}
                   />
                 </div>
-                <div className='checkBox'>
+                <div className="checkBox">
                   <Checkbox
                     onChange={(e) => checkboxHandler(e)}
-                    className='check'
-                    color='primary'
-                    shape='curve'
-                    animation='smooth'
+                    className="check"
+                    color="primary"
+                    shape="curve"
+                    animation="smooth"
                   >
                     Check this for today's date
                   </Checkbox>
                 </div>
-                <div className='input-box'>
-                  <label htmlFor='category'>
-                    What happen <span className='mandatory'>*</span>
+                <div className="input-box">
+                  <label htmlFor="category">
+                    What happen <span className="mandatory">*</span>
                   </label>
                   <select
                     required
                     onChange={(e) =>
                       setInput({ ...input, category: e.target.value })
                     }
-                    name=''
-                    id='category'
+                    name=""
+                    id="category"
                   >
-                    <option value='starter' defaultValue>
+                    <option value="starter" defaultValue>
                       Select one
                     </option>
                     {Categories.map((cate) => (
@@ -276,29 +274,29 @@ const FormPage = ({ setModal }) => {
                     ))}
                   </select>
                 </div>
-                <div className='input-box'>
-                  <label htmlFor='message'>
-                    Message <span className='mandatory'>*</span>
+                <div className="input-box">
+                  <label htmlFor="message">
+                    Message <span className="mandatory">*</span>
                   </label>
                   <textarea
                     onChange={(e) =>
                       setInput({ ...input, message: e.target.value })
                     }
-                    autoComplete='off'
-                    name='message'
-                    id=''
+                    autoComplete="off"
+                    name="message"
+                    id=""
                     value={input.message}
-                    placeholder=''
+                    placeholder=""
                     required
                   ></textarea>
                 </div>
-                <div className='input-box'>
+                <div className="input-box">
                   <button
                     disabled={false}
                     onClick={onClickHandler}
-                    type='submit'
+                    type="submit"
                   >
-                    <img src={submit} alt='' />
+                    <img src={submit} alt="" />
                     Sumbit
                   </button>
                 </div>
@@ -466,7 +464,7 @@ const StyledForm = styled.div`
     p {
       display: table;
       border-radius: 2px;
-      padding: 0.3rem 2rem;
+      padding: 0.3rem 5rem;
       margin: 0px auto 0px auto;
       background: rgba(47, 128, 237, 0.3);
     }
