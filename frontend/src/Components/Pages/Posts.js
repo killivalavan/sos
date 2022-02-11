@@ -13,7 +13,7 @@ const Posts = () => {
 
   // Get Posts
   const getPosts = async () => {
-    const { data } = await axios.get("/posts");
+    const { data } = await axios.get("/posts/");
     setPosts(data);
     setIsLoading(false);
   };
