@@ -25,7 +25,7 @@ const LandingPage = () => {
         <Carousel pause={false} controls={false} indicators={false}>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img1} alt="" />
+              <img className="d-block w-100" src={img1} alt="women enjoying" />
             </div>
             <Carousel.Caption>
               <h3>First slide label</h3>
@@ -35,7 +35,7 @@ const LandingPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img2} alt="Second slide" />
+              <img className="d-block w-100" src={img2} alt="women crying" />
             </div>
             <Carousel.Caption>
               <h3>Second slide label</h3>
@@ -45,7 +45,7 @@ const LandingPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img3} alt="Third slide" />
+              <img className="d-block w-100" src={img3} alt="women fighting" />
             </div>
             <Carousel.Caption>
               <h3>Third slide label</h3>
@@ -57,7 +57,7 @@ const LandingPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img4} alt="Third slide" />
+              <img className="d-block w-100" src={img4} alt="women abusing" />
             </div>
             <Carousel.Caption>
               <h3>Third slide label</h3>
@@ -69,7 +69,7 @@ const LandingPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img5} alt="Third slide" />
+              <img className="d-block w-100" src={img5} alt="women playing" />
             </div>
             <Carousel.Caption>
               <h3>Third slide label</h3>
@@ -81,7 +81,7 @@ const LandingPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img6} alt="Third slide" />
+              <img className="d-block w-100" src={img6} alt="women dancing" />
             </div>
             <Carousel.Caption>
               <h3>Third slide label</h3>
@@ -93,7 +93,7 @@ const LandingPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img7} alt="Third slide" />
+              <img className="d-block w-100" src={img7} alt="women trolling" />
             </div>
             <Carousel.Caption>
               <h3>Third slide label</h3>
@@ -105,7 +105,7 @@ const LandingPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img8} alt="Third slide" />
+              <img className="d-block w-100" src={img8} alt="women love" />
             </div>
             <Carousel.Caption>
               <h3>Third slide label</h3>
