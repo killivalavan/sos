@@ -14,6 +14,9 @@ import { motion } from "framer-motion";
 //To change date format
 import moment from "moment";
 
+// SEO
+import { Helmet } from "react-helmet";
+
 const PostDetails = ({ id }) => {
   const [postDetails, setPostDetails] = useState([]);
   const [isloading, setIsLoading] = useState(true);
@@ -50,87 +53,112 @@ const PostDetails = ({ id }) => {
   }, []);
 
   return (
-    <Shadow onClick={closeHandler} className="shadow">
-      <Details>
-        <Conent>
-          <div onClick={closeIconHandler} className="close">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </div>
-          <div className="avatar">
-            <Avatar style={{ width: "7rem", height: "7rem" }} {...config} />
-          </div>
-          <div className="name">
-            {!isloading ? (
-              <h4>{postDetails.name}</h4>
-            ) : (
-              <Skeleton sx={{ mx: "auto", mt: 10 }} width={100} />
-            )}
-          </div>
-          <Info>
-            {/* <div> */}
-            {!isloading ? (
-              <div className="item">
-                <p>Country</p>
-                <h6>{postDetails.country}</h6>
-              </div>
-            ) : (
-              <SpinnerTitle />
-            )}
-            {!isloading ? (
-              <div className="item">
-                <p>City</p>
-                <h6>{postDetails.city}</h6>
-              </div>
-            ) : (
-              <SpinnerTitle />
-            )}
-            {!isloading ? (
-              <div className="item">
-                <p>Locality</p>
-                <h6>{postDetails.locality}</h6>
-              </div>
-            ) : (
-              <SpinnerTitle />
-            )}
-            {/* </div> */}
-            {!isloading ? (
-              <div className="item category">
-                <p>What happen</p>
-                <h6>{postDetails.category}</h6>
-              </div>
-            ) : (
-              <SpinnerTitle />
-            )}
-            {!isloading ? (
-              <div className="item">
-                <p>When</p>
-                <h6>{moment(postDetails.date).format("MMM DD, YYYY")}</h6>
-              </div>
-            ) : (
-              <SpinnerTitle />
-            )}
-          </Info>
-          <Line />
-          <Message>
-            {!isloading ? <h6>Mesage</h6> : <SpinnerTitle />}
-            {!isloading ? <p>{postDetails.message}</p> : <SpinnerMsg />}
-          </Message>
-        </Conent>
-      </Details>
-    </Shadow>
+    <>
+      <Helmet>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        {/* Meta edge */}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        {/* Meta description */}
+        <meta
+          name="description"
+          content="Women who have faced any Sexual/Financial/Physical abuse, they can post their happenings on our website without revealing any personal data. Once the details are verified, the post will be published on the website. Furthermore, the action would be taken by the Govt for justice."
+        />
+        {/*  Keywords */}
+        <meta
+          name="keywords"
+          content="women, Sexual abuse, Financial abuse, Physical abuse, post abuse, without revealing any personal data, the action would be taken by the Govt for justice, Sexual assault,Threatening, Child Sexual Abuse, Marital rape,Incest sexual intrusion between family members,Sexual Exploitaion By Professionals,Body shaming,Threats to publish nude photo's,Stalking,Pornographic images to threaten,Forcing to take part in pornography,Following or Tracking,Threatening to commit suicide,Forcing into prostitution,Sexual touching,Cyberstalking,Trolling,Insulting,Hidden Cameras,Touching in any way you doesn't want,Forcing into sexual acts,Slapping, Beating, Punching, Kicking, Burning, Stabbing,keeping you imprisoned,Sexual Violence Within Prisons,Same Gender Assault,Gang Rape,Destroying immigration papers,Not letting you to see your friends or family,"
+        />
+        {/* Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <Shadow onClick={closeHandler} className="shadow">
+        <Details>
+          <Conent>
+            <div onClick={closeIconHandler} className="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+            <div className="avatar">
+              <Avatar style={{ width: "7rem", height: "7rem" }} {...config} />
+            </div>
+            <div className="name">
+              {!isloading ? (
+                <h4>{postDetails.name}</h4>
+              ) : (
+                <Skeleton sx={{ mx: "auto", mt: 10 }} width={100} />
+              )}
+            </div>
+            <Info>
+              {/* <div> */}
+              {!isloading ? (
+                <div className="item">
+                  <p>Country</p>
+                  <h6>{postDetails.country}</h6>
+                </div>
+              ) : (
+                <SpinnerTitle />
+              )}
+              {!isloading ? (
+                <div className="item">
+                  <p>City</p>
+                  <h6>{postDetails.city}</h6>
+                </div>
+              ) : (
+                <SpinnerTitle />
+              )}
+              {!isloading ? (
+                <div className="item">
+                  <p>Locality</p>
+                  <h6>{postDetails.locality}</h6>
+                </div>
+              ) : (
+                <SpinnerTitle />
+              )}
+              {/* </div> */}
+              {!isloading ? (
+                <div className="item category">
+                  <p>What happen</p>
+                  <h6>{postDetails.category}</h6>
+                </div>
+              ) : (
+                <SpinnerTitle />
+              )}
+              {!isloading ? (
+                <div className="item">
+                  <p>When</p>
+                  <h6>{moment(postDetails.date).format("MMM DD, YYYY")}</h6>
+                </div>
+              ) : (
+                <SpinnerTitle />
+              )}
+            </Info>
+            <Line />
+            <Message>
+              {!isloading ? <h6>Mesage</h6> : <SpinnerTitle />}
+              {!isloading ? <p>{postDetails.message}</p> : <SpinnerMsg />}
+            </Message>
+          </Conent>
+        </Details>
+      </Shadow>
+    </>
   );
 };
 

@@ -19,6 +19,8 @@ import { Fade } from "react-reveal";
 // Framer-motion
 import { motion } from "framer-motion";
 import { heartAnim } from "../Animation";
+// SEO
+import { Helmet } from "react-helmet";
 
 const About = () => {
   // To hide scrolldown icon
@@ -33,69 +35,70 @@ const About = () => {
   }
 
   return (
-    <Shadow>
-      <Container>
-        <SectionOne id="SectionOne">
-          <div className="title">
-            <h4>
-              <FontAwesomeIcon className="icon" icon={faQuoteLeft} />
-              When it comes to abuse, you believe there’s no way out. There is
-              always help. There is always a way out
-              <FontAwesomeIcon className="icon" icon={faQuoteRight} />
-            </h4>
-          </div>
-          <Heart variants={heartAnim} initial="hidden" animate="show">
-            <div className="heart"></div>
-          </Heart>
-          <Arrow>
-            <div
-              className={`arrow Fade ${
-                hash === "#NextSection" ? "inactive" : "active"
-              }`}
-            >
-              <a href="#NextSection">
-                <FontAwesomeIcon size="2x" icon={faAngleDoubleDown} />
-              </a>
+    <>
+      <Helmet>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        {/* Meta edge */}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        {/* Meta description */}
+        <meta
+          name="description"
+          content="Women who have faced any Sexual/Financial/Physical abuse, they can post their happenings on our website without revealing any personal data. Once the details are verified, the post will be published on the website. Furthermore, the action would be taken by the Govt for justice."
+        />
+        {/*  Keywords */}
+        <meta
+          name="keywords"
+          content="women, Sexual abuse, Financial abuse, Physical abuse, post abuse, without revealing any personal data, the action would be taken by the Govt for justice, Sexual assault,Threatening, Child Sexual Abuse, Marital rape,Incest sexual intrusion between family members,Sexual Exploitaion By Professionals,Body shaming,Threats to publish nude photo's,Stalking,Pornographic images to threaten,Forcing to take part in pornography,Following or Tracking,Threatening to commit suicide,Forcing into prostitution,Sexual touching,Cyberstalking,Trolling,Insulting,Hidden Cameras,Touching in any way you doesn't want,Forcing into sexual acts,Slapping, Beating, Punching, Kicking, Burning, Stabbing,keeping you imprisoned,Sexual Violence Within Prisons,Same Gender Assault,Gang Rape,Destroying immigration papers,Not letting you to see your friends or family,"
+        />
+        {/* Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <Shadow>
+        <Container>
+          <SectionOne id="SectionOne">
+            <div className="title">
+              <h4>
+                <FontAwesomeIcon className="icon" icon={faQuoteLeft} />
+                When it comes to abuse, you believe there’s no way out. There is
+                always help. There is always a way out
+                <FontAwesomeIcon className="icon" icon={faQuoteRight} />
+              </h4>
             </div>
-          </Arrow>
-          <div className="scroll-icon">
-            <img src={scrollIcon} alt="not found" />
-          </div>
-        </SectionOne>
+            <Heart variants={heartAnim} initial="hidden" animate="show">
+              <div className="heart"></div>
+            </Heart>
+            <Arrow>
+              <div
+                className={`arrow Fade ${
+                  hash === "#NextSection" ? "inactive" : "active"
+                }`}
+              >
+                <a href="#NextSection">
+                  <FontAwesomeIcon size="2x" icon={faAngleDoubleDown} />
+                </a>
+              </div>
+            </Arrow>
+            <div className="scroll-icon">
+              <img src={scrollIcon} alt="not found" />
+            </div>
+          </SectionOne>
 
-        <NextSection>
-          <Map id="NextSection" />
-          <Counter id="counterSection" />
-        </NextSection>
+          <NextSection>
+            <Map id="NextSection" />
+            <Counter id="counterSection" />
+          </NextSection>
 
-        <SectionTwo id="SectionTwo">
-          {/* <Fade left> */}
-          <div className="box Our">
-            <h6>
-              <span>Our</span> motto?
-              <div className="line"></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Labore, nam!
-            </p>
-          </div>
-          {/* </Fade> */}
-          <div className="box what">
-            <h6>
-              <span>What</span> we do?
-              <div className="line"></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis?
-            </p>
-          </div>
-          <Fade right>
-            <div className="box how">
+          <SectionTwo id="SectionTwo">
+            {/* <Fade left> */}
+            <div className="box Our">
               <h6>
-                <span>How</span> did it work?
+                <span>Our</span> motto?
                 <div className="line"></div>
               </h6>
               <p>
@@ -104,11 +107,46 @@ const About = () => {
                 elit. Labore, nam!
               </p>
             </div>
-          </Fade>
-          <Fade left>
-            <div className="box trust">
+            {/* </Fade> */}
+            <div className="box what">
               <h6>
-                <span>Trust</span> us?
+                <span>What</span> we do?
+                <div className="line"></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis?
+              </p>
+            </div>
+            <Fade right>
+              <div className="box how">
+                <h6>
+                  <span>How</span> did it work?
+                  <div className="line"></div>
+                </h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                  facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
+                  elit. Labore, nam!
+                </p>
+              </div>
+            </Fade>
+            <Fade left>
+              <div className="box trust">
+                <h6>
+                  <span>Trust</span> us?
+                  <div className="line"></div>
+                </h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                  facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
+                  elit. Labore, nam!
+                </p>
+              </div>
+            </Fade>
+            <div className="box help">
+              <h6>
+                <span>We'll</span> shout for you
                 <div className="line"></div>
               </h6>
               <p>
@@ -117,22 +155,33 @@ const About = () => {
                 elit. Labore, nam!
               </p>
             </div>
-          </Fade>
-          <div className="box help">
-            <h6>
-              <span>We'll</span> shout for you
-              <div className="line"></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Labore, nam!
-            </p>
-          </div>
-          <Fade right>
+            <Fade right>
+              <div className="box just">
+                <h6>
+                  <span>Just</span> 5 minutes!
+                  <div className="line"></div>
+                </h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                  facilis?
+                </p>
+              </div>
+            </Fade>
+            <Fade left>
+              <div className="box just">
+                <h6>
+                  <span>Made</span> for Women
+                  <div className="line"></div>
+                </h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                  facilis?
+                </p>
+              </div>
+            </Fade>
             <div className="box just">
               <h6>
-                <span>Just</span> 5 minutes!
+                <span>Attach</span> your evidence!
                 <div className="line"></div>
               </h6>
               <p>
@@ -140,45 +189,23 @@ const About = () => {
                 facilis?
               </p>
             </div>
-          </Fade>
-          <Fade left>
-            <div className="box just">
-              <h6>
-                <span>Made</span> for Women
-                <div className="line"></div>
-              </h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis?
-              </p>
-            </div>
-          </Fade>
-          <div className="box just">
-            <h6>
-              <span>Attach</span> your evidence!
-              <div className="line"></div>
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-              facilis?
-            </p>
-          </div>
-          <Fade right>
-            <div className="box just">
-              <h6>
-                <span>Contact</span> us!
-                <div className="line"></div>
-              </h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis?
-              </p>
-            </div>
-          </Fade>
-        </SectionTwo>
-        <Footer />
-      </Container>
-    </Shadow>
+            <Fade right>
+              <div className="box just">
+                <h6>
+                  <span>Contact</span> us!
+                  <div className="line"></div>
+                </h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                  facilis?
+                </p>
+              </div>
+            </Fade>
+          </SectionTwo>
+          <Footer />
+        </Container>
+      </Shadow>
+    </>
   );
 };
 
