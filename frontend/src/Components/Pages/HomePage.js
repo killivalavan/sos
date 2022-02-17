@@ -27,6 +27,7 @@ const HomePage = () => {
           href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400&display=swap"
           rel="stylesheet"
         />
+        <title>Save women - saveoursouls.co.in</title>
       </Helmet>
       <div>
         <LandingPage />
