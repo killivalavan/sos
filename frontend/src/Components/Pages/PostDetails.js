@@ -45,7 +45,7 @@ const PostDetails = ({ id }) => {
 
   useEffect(() => {
     const getPostDetails = async () => {
-      const { data } = await axios.get(`http://localhost:5000/posts/${id}`);
+      const { data } = await axios.get(`/posts/${id}`);
       setPostDetails(data);
       setIsLoading(!isloading);
     };
