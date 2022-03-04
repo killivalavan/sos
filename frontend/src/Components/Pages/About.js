@@ -38,7 +38,6 @@ const About = () => {
     <>
       <Helmet>
         <meta charset="utf-8" />
-        <link rel="icon" href="%PUBLIC_URL%/logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         {/* Meta edge */}
@@ -58,7 +57,7 @@ const About = () => {
           href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400&display=swap"
           rel="stylesheet"
         />
-        <title>Save women - saveoursouls.co.in</title>
+        <title>About - saveoursouls.co.in</title>
       </Helmet>
       <Shadow>
         <Container>
@@ -92,11 +91,10 @@ const About = () => {
 
           <NextSection>
             <Map id="NextSection" />
-            <Counter id="counterSection" />
+            <Counter className="headline" id="counterSection" />
           </NextSection>
 
-          <SectionTwo id="SectionTwo">
-            {/* <Fade left> */}
+          <SectionTwo className="about" id="SectionTwo">
             <div className="box Our">
               <h6>
                 <span>Our</span> motto?
@@ -108,7 +106,7 @@ const About = () => {
                 elit. Labore, nam!
               </p>
             </div>
-            {/* </Fade> */}
+
             <div className="box what">
               <h6>
                 <span>What</span> we do?
@@ -119,32 +117,31 @@ const About = () => {
                 facilis?
               </p>
             </div>
-            <Fade right>
-              <div className="box how">
-                <h6>
-                  <span>How</span> did it work?
-                  <div className="line"></div>
-                </h6>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                  facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
-                  elit. Labore, nam!
-                </p>
-              </div>
-            </Fade>
-            <Fade left>
-              <div className="box trust">
-                <h6>
-                  <span>Trust</span> us?
-                  <div className="line"></div>
-                </h6>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                  facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
-                  elit. Labore, nam!
-                </p>
-              </div>
-            </Fade>
+
+            <div className="box how">
+              <h6>
+                <span>How</span> did it work?
+                <div className="line"></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Labore, nam!
+              </p>
+            </div>
+
+            <div className="box trust">
+              <h6>
+                <span>Trust</span> us?
+                <div className="line"></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Labore, nam!
+              </p>
+            </div>
+
             <div className="box help">
               <h6>
                 <span>We'll</span> shout for you
@@ -156,30 +153,29 @@ const About = () => {
                 elit. Labore, nam!
               </p>
             </div>
-            <Fade right>
-              <div className="box just">
-                <h6>
-                  <span>Just</span> 5 minutes!
-                  <div className="line"></div>
-                </h6>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                  facilis?
-                </p>
-              </div>
-            </Fade>
-            <Fade left>
-              <div className="box just">
-                <h6>
-                  <span>Made</span> for Women
-                  <div className="line"></div>
-                </h6>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                  facilis?
-                </p>
-              </div>
-            </Fade>
+
+            <div className="box just">
+              <h6>
+                <span>Just</span> 5 minutes!
+                <div className="line"></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis?
+              </p>
+            </div>
+
+            <div className="box just">
+              <h6>
+                <span>Made</span> for Women
+                <div className="line"></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis?
+              </p>
+            </div>
+
             <div className="box just">
               <h6>
                 <span>Attach</span> your evidence!
@@ -190,18 +186,17 @@ const About = () => {
                 facilis?
               </p>
             </div>
-            <Fade right>
-              <div className="box just">
-                <h6>
-                  <span>Contact</span> us!
-                  <div className="line"></div>
-                </h6>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                  facilis?
-                </p>
-              </div>
-            </Fade>
+
+            <div className="box just">
+              <h6>
+                <span>Contact</span> us!
+                <div className="line"></div>
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                facilis?
+              </p>
+            </div>
           </SectionTwo>
           <Footer />
         </Container>
