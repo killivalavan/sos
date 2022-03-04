@@ -14,8 +14,7 @@ import {
 import Counter from "../Counter";
 import Map from "../Map";
 import { useHistory } from "react-router-dom";
-// Reveal
-import { Fade } from "react-reveal";
+
 // Framer-motion
 import { motion } from "framer-motion";
 import { heartAnim } from "../Animation";
