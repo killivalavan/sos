@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,7 +7,6 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import CountUp from "react-countup";
-import { Fade } from "react-reveal";
 
 const Counter = ({ counterSection }) => {
   return (
@@ -15,21 +14,17 @@ const Counter = ({ counterSection }) => {
       <div className="counter">
         <div className="one">
           <FontAwesomeIcon className="icon" size="3x" icon={faGlobeAsia} />
-          <Fade>
-            <h3>
-              <CountUp duration={1.5} delay={0} start={1} end={11} /> +
-            </h3>
-          </Fade>
+          <h3>
+            <CountUp duration={1.5} delay={0} start={1} end={11} /> +
+          </h3>
           <p>Countries with high crime rate in the world 2021</p>
         </div>
         <div className="two">
           <FontAwesomeIcon className="icon" size="3x" icon={faFemale} />
-          <Fade>
-            <h3>
-              {" "}
-              <CountUp duration={1.5} delay={2} start={1} end={81} />%
-            </h3>
-          </Fade>
+          <h3>
+            {" "}
+            <CountUp duration={1.5} delay={2} start={1} end={81} />%
+          </h3>
           <p>
             of women reported experiencing some form of sexual harassment in top
             countries
@@ -37,12 +32,10 @@ const Counter = ({ counterSection }) => {
         </div>
         <div className="three">
           <FontAwesomeIcon className="icon" size="3x" icon={faUsers} />
-          <Fade>
-            <h3>
-              734,
-              <CountUp duration={1.5} delay={4} start={0} end={630} /> +
-            </h3>
-          </Fade>
+          <h3>
+            734,
+            <CountUp duration={1.5} delay={4} start={0} end={630} /> +
+          </h3>
           <p>people were raped only in the U.S as per report</p>
         </div>
       </div>

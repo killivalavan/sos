@@ -24,7 +24,9 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const post = await Post.find();
+    const post = await Post.find({}).sort({
+      createdAt: -1,
+    });
     res.json(post);
   } catch (err) {
     res.json({ message: "Post not Found", error: err });

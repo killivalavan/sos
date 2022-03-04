@@ -42,7 +42,7 @@ const Message = ({ id, name, message, date }) => {
             </span>
           </div>
           <div className="message">
-            {message.substring(0, 180)}
+            {message.substring(0, 200)}
             {message.length >= 150 && (
               <Link className="read-more" to={`/posts/${id}`}>
                 {" "}
@@ -51,7 +51,7 @@ const Message = ({ id, name, message, date }) => {
             )}
           </div>
           <div className="message-mobile-view">
-            {message.substring(0, 270)}
+            {message.substring(0, 245)}
             {message.length >= 160 && (
               <Link className="read-more" to={`/posts/${id}`}>
                 {" "}

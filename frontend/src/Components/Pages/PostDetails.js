@@ -45,7 +45,7 @@ const PostDetails = ({ id }) => {
 
   useEffect(() => {
     const getPostDetails = async () => {
-      const { data } = await axios.get(`/posts/${id}`);
+      const { data } = await axios.get(`http://localhost:5000/posts/${id}`);
       setPostDetails(data);
       setIsLoading(!isloading);
     };
@@ -56,7 +56,6 @@ const PostDetails = ({ id }) => {
     <>
       <Helmet>
         <meta charset="utf-8" />
-        <link rel="icon" href="%PUBLIC_URL%/logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         {/* Meta edge */}

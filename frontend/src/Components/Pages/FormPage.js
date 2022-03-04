@@ -12,6 +12,9 @@ import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 // Cehckbox
 import { Checkbox, Switch } from "pretty-checkbox-react";
 import "@djthoms/pretty-checkbox";
+
+//To change date format
+import moment from "moment";
 // SEO
 import { Helmet } from "react-helmet";
 
@@ -59,7 +62,7 @@ const FormPage = ({ setModal }) => {
 
     const isValid = await formSchema.isValid(formData);
     setValid(isValid);
-    isValid && axios.post("/posts", formData);
+    isValid && axios.post("http://localhost:5000/posts", formData);
   };
 
   // Remove Alert
@@ -105,7 +108,6 @@ const FormPage = ({ setModal }) => {
     <>
       <Helmet>
         <meta charset="utf-8" />
-        <link rel="icon" href="%PUBLIC_URL%/logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         {/* Meta edge */}
@@ -266,6 +268,7 @@ const FormPage = ({ setModal }) => {
                       id=""
                       required
                       disabled={isSelected}
+                      max={moment().format("YYYY-MM-DD")}
                     />
                   </div>
                   <div className="checkBox">
@@ -276,7 +279,7 @@ const FormPage = ({ setModal }) => {
                       shape="curve"
                       animation="smooth"
                     >
-                      Check this for today's date
+                      Check for today's date
                     </Checkbox>
                   </div>
                   <div className="input-box">

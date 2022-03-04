@@ -95,7 +95,7 @@ const Header = () => {
           <Link to="/posts">Posts</Link>
         </li>
         <li>
-          <Link to="/about">Aboutt</Link>
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </StyledNav>
