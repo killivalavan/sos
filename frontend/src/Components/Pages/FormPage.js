@@ -390,7 +390,6 @@ const StyledForm = styled.div`
   select,
   #my-region-field-id,
   #my-country-field-id {
-    -webkit-appearance: menulist-button;
     width: 100%;
     border: 1px solid var(--grey);
     padding: 0.4rem 0.2rem;
@@ -400,6 +399,9 @@ const StyledForm = styled.div`
       border: 1px solid var(--blue);
       box-shadow: 0 0 5px var(--blue);
     }
+  }
+  select {
+    -webkit-appearance: textfield;
   }
 
   textarea {
