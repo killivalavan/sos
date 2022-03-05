@@ -401,7 +401,7 @@ const StyledForm = styled.div`
     }
   }
   select {
-    -webkit-appearance: textfield;
+    text-indent: 15px;
   }
 
   textarea {
