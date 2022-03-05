@@ -356,7 +356,6 @@ const StyledCard = styled.div`
 const StyledForm = styled.div`
   width: 70%;
   margin-top: 5rem;
-  margin-bottom: 3rem;
   border-radius: 10px;
   padding: 2rem 2rem 3rem 5rem;
   background: white;
@@ -515,7 +514,7 @@ const StyledForm = styled.div`
 
   @media screen and (max-width: 1080px) {
     width: 90%;
-    margin: 5rem auto;
+    margin: 2rem auto 3rem auto;
     left: 6%;
   }
   @media screen and (max-width: 620px) {
