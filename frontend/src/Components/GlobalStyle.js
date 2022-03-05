@@ -5,6 +5,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+//Disable text selecting
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
  // Scroll Bar
  *::-webkit-scrollbar {
@@ -26,11 +32,11 @@ html{
     --grey: #828282;
     scroll-behavior: smooth;
     //Disable text selecting
-    -webkit-user-select: none;
+    /* -webkit-user-select: none;
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
-}
+} */
 
 body{
     font-family: 'Roboto', sans-serif;
