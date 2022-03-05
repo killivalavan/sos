@@ -49,7 +49,7 @@ const LandingPage = () => {
         <Carousel pause={false} controls={false} indicators={false}>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img1} alt="women enjoying" />
+              <img className="d-block w-100" src={img3} alt="women enjoying" />
             </div>
             <Carousel.Caption>
               <h3>First slide label</h3>
@@ -69,7 +69,7 @@ const LandingPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="gradient">
-              <img className="d-block w-100" src={img3} alt="women fighting" />
+              <img className="d-block w-100" src={img1} alt="women fighting" />
             </div>
             <Carousel.Caption>
               <h3>Third slide label</h3>
@@ -147,9 +147,6 @@ const LandingPage = () => {
 };
 
 const StyledCarousel = styled.div`
-  padding: 12px;
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
   img {
     height: 90vh;
     object-fit: cover;
@@ -203,6 +200,15 @@ const StyledCarousel = styled.div`
       rgba(0, 0, 0, 0.65) 100%
     ); /* W3C */
     filter: progid:DXgradientTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+  }
+
+  @media screen and (max-width: 620px) {
+    /* For iphone X */
+    /* padding: 10px;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right); */
+
+    padding-bottom: env(safe-area-inset-bottom);
   }
 `;
 
