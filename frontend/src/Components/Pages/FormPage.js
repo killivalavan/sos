@@ -62,7 +62,7 @@ const FormPage = ({ setModal }) => {
 
     const isValid = await formSchema.isValid(formData);
     setValid(isValid);
-    isValid && axios.post("api/posts", formData);
+    isValid && axios.post("/api/posts", formData);
   };
 
   // Remove Alert

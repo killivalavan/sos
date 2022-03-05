@@ -45,7 +45,7 @@ const PostDetails = ({ id }) => {
 
   useEffect(() => {
     const getPostDetails = async () => {
-      const { data } = await axios.get(`api/posts/${id}`);
+      const { data } = await axios.get(`/api/posts/${id}`);
       setPostDetails(data);
       setIsLoading(!isloading);
     };
