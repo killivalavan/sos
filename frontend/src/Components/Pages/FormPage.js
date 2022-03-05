@@ -394,15 +394,18 @@ const StyledForm = styled.div`
     border: 1px solid var(--grey);
     padding: 0.4rem 0.2rem;
     border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-appearance: textfield;
     &:focus {
       outline: none;
       border: 1px solid var(--blue);
       box-shadow: 0 0 5px var(--blue);
     }
   }
-  select {
+  /* select {
     text-indent: 15px;
-  }
+  } */
 
   textarea {
     height: 8rem;
