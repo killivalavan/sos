@@ -18,9 +18,9 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use("/posts", PostRoute);
+app.use("/api", PostRoute);
 
-// Deployment
+// Deployment stuffs
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));
 

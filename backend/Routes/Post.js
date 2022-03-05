@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 import Post from "../Models/post.js";
 
-router.post("/", async (req, res) => {
+router.post("/posts", async (req, res) => {
   const post = new Post({
     name: req.body.name,
     mail: req.body.mail,
@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/posts", async (req, res) => {
   try {
     const post = await Post.find({}).sort({
       createdAt: -1,
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/posts/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     res.json(post);
