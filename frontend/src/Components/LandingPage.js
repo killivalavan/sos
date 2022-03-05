@@ -204,8 +204,8 @@ const StyledCarousel = styled.div`
 
   @media screen and (max-width: 620px) {
     /* For iphone X */
-    /* padding: 10px;
-    padding-left: env(safe-area-inset-left);
+    padding: 10px;
+    /*padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right); */
 
     padding-bottom: env(safe-area-inset-bottom);
