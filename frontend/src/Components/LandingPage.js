@@ -147,6 +147,9 @@ const LandingPage = () => {
 };
 
 const StyledCarousel = styled.div`
+  padding: 12px;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
   img {
     height: 90vh;
     object-fit: cover;

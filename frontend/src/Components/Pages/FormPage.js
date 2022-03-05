@@ -519,7 +519,7 @@ const StyledForm = styled.div`
   }
   @media screen and (max-width: 620px) {
     padding: 2rem 2rem 3rem 2rem;
-
+    margin-bottom: 5rem;
     .input-box {
       width: 100%;
     }
