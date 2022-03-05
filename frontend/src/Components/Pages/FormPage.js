@@ -356,6 +356,7 @@ const StyledCard = styled.div`
 const StyledForm = styled.div`
   width: 70%;
   margin-top: 5rem;
+  margin-bottom: 3rem;
   border-radius: 10px;
   padding: 2rem 2rem 3rem 5rem;
   background: white;
@@ -396,16 +397,17 @@ const StyledForm = styled.div`
     border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
-    -webkit-appearance: textfield;
+    /* -webkit-appearance: textfield; */
     &:focus {
       outline: none;
       border: 1px solid var(--blue);
       box-shadow: 0 0 5px var(--blue);
     }
   }
-  /* select {
-    text-indent: 15px;
-  } */
+  select {
+    text-indent: 6px;
+    line-height: 30px;
+  }
 
   textarea {
     height: 8rem;
