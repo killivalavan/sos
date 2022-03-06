@@ -62,12 +62,11 @@ ul{
     list-style: none;
 }
 
-input[type="text"]{
-    -webkit-user-select: text;
-}
 
 @media screen and (max-width: 678px) {
-
+    input[type="text"]{
+    -webkit-user-select: text;
+}
 }
 
 `;
