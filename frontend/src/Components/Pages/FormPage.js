@@ -466,7 +466,7 @@ const StyledForm = styled.div`
     position: absolute;
     right: 0%;
     top: 0%;
-    transform: translate(-50%, 30%);
+    transform: translate(-50%, 10%);
     font-size: 1.5rem;
     width: 2rem;
     color: var(--grey);

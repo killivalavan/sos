@@ -267,6 +267,7 @@ const SectionOne = styled.div`
     }
   }
   @media screen and (max-width: 866px) {
+    min-height: 100vh;
     background-image: linear-gradient(
         180deg,
         rgba(80, 101, 117, 0.14056960674894958) 0%,

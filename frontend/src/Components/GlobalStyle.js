@@ -37,6 +37,7 @@ html{
     -ms-user-select: none;
     user-select: none;
 } */
+}
 
 body{
     font-family: 'Roboto', sans-serif;
@@ -59,6 +60,10 @@ a,button{
 }
 ul{
     list-style: none;
+}
+
+input[type="text"]{
+    -webkit-user-select: text;
 }
 
 @media screen and (max-width: 678px) {
