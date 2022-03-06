@@ -79,6 +79,12 @@ ul{
     padding-top: env(safe-area-inset-top);
   }
 
+  @supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */ 
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+
+
 `;
 
 export default GlobalStyle;
