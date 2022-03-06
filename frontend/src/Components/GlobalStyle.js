@@ -70,9 +70,18 @@ ul{
 }
 
  /* Portrait */
- @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
-    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-  }
+ /* @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  } */
+
+  /* 2436x1125px at 458ppi Iphone XR*/
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+
+    }
 
   @media screen and (max-width: 620px) {
     padding-bottom: env(safe-area-inset-bottom);
@@ -84,6 +93,9 @@ ul{
   padding-bottom: calc(1rem + env(safe-area-inset-bottom));
 }
 
+input[type='date']{
+    -webkit-min-logical-width: calc(100% - 16px);
+}
 
 `;
 
