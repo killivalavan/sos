@@ -535,6 +535,9 @@ const StyledForm = styled.div`
     #alert {
     }
   }
+  input[type="date"] {
+    -webkit-min-logical-width: calc(100% - 16px);
+  }
 `;
 
 export default FormPage;

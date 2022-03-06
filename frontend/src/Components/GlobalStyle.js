@@ -93,9 +93,6 @@ ul{
   padding-bottom: calc(1rem + env(safe-area-inset-bottom));
 }
 
-input[type='date']{
-    -webkit-min-logical-width: calc(100% - 16px);
-}
 
 `;
 
