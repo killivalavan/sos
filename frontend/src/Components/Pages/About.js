@@ -5,6 +5,16 @@ import styled from "styled-components";
 import image from "../../img/back.jpg";
 import back3 from "../../img/back3.jpg";
 import scrollIcon from "../../img/icon.png";
+import alarm from "../../img/about/alarm.png";
+import mic from "../../img/about/mic.png";
+import trust from "../../img/about/trust.png";
+import women from "../../img/about/women.png";
+import contact from "../../img/about/contact.png";
+import upload from "../../img/about/upload.png";
+import work from "../../img/about/work.png";
+import idea from "../../img/about/idea.png";
+import wedo from "../../img/about/wedo.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDoubleDown,
@@ -104,6 +114,7 @@ const About = () => {
                 facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
                 elit. Labore, nam!
               </p>
+              <img src={idea} />
             </div>
 
             <div className="box what">
@@ -115,6 +126,7 @@ const About = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
                 facilis?
               </p>
+              <img src={wedo} />
             </div>
 
             <div className="box how">
@@ -127,6 +139,7 @@ const About = () => {
                 facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
                 elit. Labore, nam!
               </p>
+              <img src={work} />
             </div>
 
             <div className="box trust">
@@ -139,6 +152,7 @@ const About = () => {
                 facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
                 elit. Labore, nam!
               </p>
+              <img src={trust} />
             </div>
 
             <div className="box help">
@@ -151,6 +165,7 @@ const About = () => {
                 facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
                 elit. Labore, nam!
               </p>
+              <img src={mic}></img>
             </div>
 
             <div className="box just">
@@ -162,6 +177,7 @@ const About = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
                 facilis?
               </p>
+              <img src={alarm}></img>
             </div>
 
             <div className="box just">
@@ -173,6 +189,7 @@ const About = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
                 facilis?
               </p>
+              <img src={women} />
             </div>
 
             <div className="box just">
@@ -184,6 +201,7 @@ const About = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
                 facilis?
               </p>
+              <img src={upload} />
             </div>
 
             <div className="box just">
@@ -195,6 +213,7 @@ const About = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
                 facilis?
               </p>
+              <img src={contact} />
             </div>
           </SectionTwo>
           <Footer />
@@ -306,6 +325,7 @@ const SectionTwo = styled(motion.div)`
   position: relative;
 
   .box {
+    position: relative;
     height: 23vh;
     width: 100%;
     background: white;
@@ -328,6 +348,18 @@ const SectionTwo = styled(motion.div)`
   }
   .box.Our {
     border-left: 7px solid var(--blue);
+  }
+
+  .box img {
+    position: absolute;
+    /* padding-bottom: 0rem;
+    float: right; */
+    right: 6%;
+    bottom: 6%;
+    transform: translate(-6%, -6%);
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.4;
   }
   @media screen and (max-width: 468px) {
     grid-template-columns: none;

@@ -464,9 +464,9 @@ const StyledForm = styled.div`
   .close {
     font-size: 1rem;
     position: absolute;
-    right: 0%;
-    top: 0%;
-    transform: translate(-50%, 10%);
+    right: 2%;
+    top: 2%;
+    transform: translate(2%, 2%);
     font-size: 1.5rem;
     width: 2rem;
     color: var(--grey);
@@ -535,6 +535,7 @@ const StyledForm = styled.div`
     #alert {
     }
   }
+  /* Ios date picker  */
   input[type="date"] {
     -webkit-min-logical-width: calc(100% - 16px);
   }
