@@ -55,33 +55,30 @@ const Posts = () => {
         <title>Posts - saveoursouls.co.in</title>
       </Helmet>
       {pathId && <PostDetails id={pathId} />}
-      {posts.verified && (
-        <StyledPost>
-          <StyledMessage>
-            {posts.map((post) => (
-              <LazyLoad
-                key={post._id}
-                throttle={200}
-                height={200}
-                offset={[100, 0]}
-                placeholder={<SpinnerPosts />}
-              >
-                {!isLoading && (
-                  <Message
-                    key={post._id}
-                    id={post._id}
-                    name={post.name}
-                    message={post.message}
-                    date={post.updatedAt}
-                  />
-                )}
-              </LazyLoad>
-            ))}
-          </StyledMessage>
-
-          {isLoading && <SpinnerMain />}
-        </StyledPost>
-      )}
+      <StyledPost>
+        <StyledMessage>
+          {posts.map((post) => (
+            <LazyLoad
+              key={post._id}
+              throttle={200}
+              height={200}
+              offset={[100, 0]}
+              placeholder={<SpinnerPosts />}
+            >
+              {!isLoading && post.verified && (
+                <Message
+                  key={post._id}
+                  id={post._id}
+                  name={post.name}
+                  message={post.message}
+                  date={post.updatedAt}
+                />
+              )}
+            </LazyLoad>
+          ))}
+        </StyledMessage>
+        {isLoading && <SpinnerMain />}
+      </StyledPost>
     </>
   );
 };
