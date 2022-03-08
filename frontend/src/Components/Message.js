@@ -69,7 +69,7 @@ const Message = ({ id, name, message, date, verified }) => {
 };
 
 const Card = styled.div`
-position: relative;
+  position: relative;
   height: 15vh;
   width: 23rem;
   background: white;
@@ -113,7 +113,7 @@ position: relative;
     .message {
       display: block;
     }
-/* To blur */
+    /* To blur */
     .blur {
       -webkit-filter: blur(4px);
       -moz-filter: blur(4px);
@@ -126,18 +126,16 @@ position: relative;
       position: absolute;
       top: 40%;
       left: 30%;
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-style: italic;
       color: black;
-      padding: .2rem 2rem;
+      padding: 0.2rem 2rem;
     }
-
-    
+  }
 
   @media screen and (max-width: 678px) {
     height: 20vh;
     width: 20rem;
-
     .card-body {
       .message-mobile-view {
         display: block;
