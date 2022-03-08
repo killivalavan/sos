@@ -14,10 +14,12 @@ const Posts = () => {
 
   // Get Posts
   const getPosts = async () => {
-    const { data } = await axios.get("http://localhost:5000/api/posts/");
+    const { data } = await axios.get("/api/posts/");
     setPosts(data);
     setIsLoading(false);
   };
+
+  console.log(posts);
 
   // To get pathID
   const location = useLocation();
@@ -54,27 +56,29 @@ const Posts = () => {
       </Helmet>
       {pathId && <PostDetails id={pathId} />}
       <StyledPost>
-        <StyledMessage>
-          {posts.map((post) => (
-            <LazyLoad
-              key={post._id}
-              throttle={200}
-              height={200}
-              offset={[100, 0]}
-              placeholder={<SpinnerPosts />}
-            >
-              {!isLoading && (
-                <Message
-                  key={post._id}
-                  id={post._id}
-                  name={post.name}
-                  message={post.message}
-                  date={post.updatedAt}
-                />
-              )}
-            </LazyLoad>
-          ))}
-        </StyledMessage>
+        {posts.verified && (
+          <StyledMessage>
+            {posts.map((post) => (
+              <LazyLoad
+                key={post._id}
+                throttle={200}
+                height={200}
+                offset={[100, 0]}
+                placeholder={<SpinnerPosts />}
+              >
+                {!isLoading && (
+                  <Message
+                    key={post._id}
+                    id={post._id}
+                    name={post.name}
+                    message={post.message}
+                    date={post.updatedAt}
+                  />
+                )}
+              </LazyLoad>
+            ))}
+          </StyledMessage>
+        )}
         {isLoading && <SpinnerMain />}
       </StyledPost>
     </>
