@@ -206,7 +206,7 @@ const About = () => {
                 <span>Reach</span> us!
                 <div className="line"></div>
               </h6>
-              <p>For any queries contact us, saveoursouls@gmail.com</p>
+              <p>For any queries contact us, saveoursouls.co.in@gmail.com</p>
               <img src={contact} alt="contact" />
             </div>
           </SectionTwo>
