@@ -55,8 +55,8 @@ const Posts = () => {
         <title>Posts - saveoursouls.co.in</title>
       </Helmet>
       {pathId && <PostDetails id={pathId} />}
-      <StyledPost>
-        {posts.verified && (
+      {posts.verified && (
+        <StyledPost>
           <StyledMessage>
             {posts.map((post) => (
               <LazyLoad
@@ -78,9 +78,10 @@ const Posts = () => {
               </LazyLoad>
             ))}
           </StyledMessage>
-        )}
-        {isLoading && <SpinnerMain />}
-      </StyledPost>
+
+          {isLoading && <SpinnerMain />}
+        </StyledPost>
+      )}
     </>
   );
 };
