@@ -110,34 +110,36 @@ const About = () => {
                 <div className="line"></div>
               </h6>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Labore, nam!
+                Being an anonymous woman you can share your fears and
+                insecurities without giving your private data.
               </p>
               <img src={idea} />
             </div>
 
             <div className="box what">
               <h6>
-                <span>What</span> we do?
+                <span>What do</span> we do?
                 <div className="line"></div>
               </h6>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis?
+                We collect data and convey it to authorities responsible for
+                their further accountability for justice.
               </p>
               <img src={wedo} />
             </div>
 
             <div className="box how">
               <h6>
-                <span>How</span> did it work?
+                <span>Tell</span> us
                 <div className="line"></div>
               </h6>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Labore, nam!
+                Just in two steps. <br /> <span>Home</span> <span>&#8594;</span>{" "}
+                Click on the <span>Tell us </span>
+                <span>&#8594;</span> Fill the form <span>&#8594;</span> Click{" "}
+                <span>SUBMIT</span>
+                <br /> Once verified, You can find your post in the{" "}
+                <span>POST</span> tab.
               </p>
               <img src={work} />
             </div>
@@ -148,9 +150,8 @@ const About = () => {
                 <div className="line"></div>
               </h6>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Labore, nam!
+                we won't take a piece of personal data to accept your posts.
+                Feel free and write to us.
               </p>
               <img src={trust} />
             </div>
@@ -161,9 +162,8 @@ const About = () => {
                 <div className="line"></div>
               </h6>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis? Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Labore, nam!
+                We'll listen to your words, those words you cannot say loud to
+                the world we'll carry them out, with your privacy.
               </p>
               <img src={mic}></img>
             </div>
@@ -173,10 +173,7 @@ const About = () => {
                 <span>Just</span> 5 minutes!
                 <div className="line"></div>
               </h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis?
-              </p>
+              <p>Spend a few mins and seed your happenings with easy steps.</p>
               <img src={alarm}></img>
             </div>
 
@@ -186,8 +183,8 @@ const About = () => {
                 <div className="line"></div>
               </h6>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis?
+                We made this site to save every woman from the sexual harassment
+                they face in their daily life.
               </p>
               <img src={women} />
             </div>
@@ -198,21 +195,18 @@ const About = () => {
                 <div className="line"></div>
               </h6>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis?
+                Don't leave a single piece of evidence against the victim.
+                Attach with it.
               </p>
               <img src={upload} />
             </div>
 
             <div className="box just">
               <h6>
-                <span>Contact</span> us!
+                <span>Reach</span> us!
                 <div className="line"></div>
               </h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                facilis?
-              </p>
+              <p>For any queries contact us, saveoursouls@gmail.com</p>
               <img src={contact} />
             </div>
           </SectionTwo>
@@ -341,6 +335,9 @@ const SectionTwo = styled(motion.div)`
   p {
     font-size: 0.9rem;
     color: #696969;
+    span {
+      font-weight: 600;
+    }
   }
   h6 {
     font-size: 1.2rem;
@@ -360,6 +357,7 @@ const SectionTwo = styled(motion.div)`
     width: 3rem;
     height: 3rem;
     opacity: 0.4;
+    pointer-events: none;
   }
   @media screen and (max-width: 468px) {
     grid-template-columns: none;

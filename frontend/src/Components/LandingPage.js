@@ -46,14 +46,22 @@ const LandingPage = () => {
         <title>Save women - saveoursouls.co.in</title>
       </Helmet>
       <StyledCarousel>
-        <Carousel pause={false} controls={false} indicators={false}>
+        <Carousel
+          interval={10000}
+          pause={false}
+          controls={false}
+          indicators={false}
+        >
           <Carousel.Item>
             <div className="gradient">
               <img className="d-block w-100" src={img3} alt="women enjoying" />
             </div>
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>No worries!</h3>
+              <p>
+                Do not bury your worries in silence anymore, Gather your
+                strength and pull up your confidence, We are there for you.
+              </p>
               <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
@@ -62,8 +70,12 @@ const LandingPage = () => {
               <img className="d-block w-100" src={img2} alt="women crying" />
             </div>
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>Your appearance is your choice</h3>
+              <p>
+                They have no right to criticize your looks, you are the goddess
+                from heaven, you have to raise your head and we will carry your
+                pride.
+              </p>
               <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
           </Carousel.Item>
@@ -72,9 +84,11 @@ const LandingPage = () => {
               <img className="d-block w-100" src={img1} alt="women fighting" />
             </div>
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h3>Threat alert!</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                We know you are afraid, we know that you are tired, we even know
+                you are enduring it, no more tolerance to violence we'll cut it
+                off.
               </p>
               <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
@@ -84,9 +98,11 @@ const LandingPage = () => {
               <img className="d-block w-100" src={img4} alt="women abusing" />
             </div>
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h3>Brave enough to fight</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Outraging her modesty is a sin restrain from her with your dirty
+                behaviour! approaching her with the bad intention? we won't let
+                you do that!
               </p>
               <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
@@ -96,9 +112,10 @@ const LandingPage = () => {
               <img className="d-block w-100" src={img5} alt="women playing" />
             </div>
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h3>Your words would be acknowledged</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                We'll listen to your words, those words you cannot say loud to
+                the world we'll bring them out.
               </p>
               <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
@@ -108,9 +125,10 @@ const LandingPage = () => {
               <img className="d-block w-100" src={img6} alt="women dancing" />
             </div>
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h3>We understand you</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                To the world, we make aware that women's harassment is an
+                offence what happened to you should not repeat.
               </p>
               <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
@@ -120,21 +138,10 @@ const LandingPage = () => {
               <img className="d-block w-100" src={img7} alt="women trolling" />
             </div>
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h3>You deserved to fly freely </h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-              <button onClick={onclickHandler}>Tell Us</button>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="gradient">
-              <img className="d-block w-100" src={img8} alt="women love" />
-            </div>
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                You are not a bird of a cage, cutting your wings is like killing
+                your dreams, make your dreams come true with us.
               </p>
               <button onClick={onclickHandler}>Tell Us</button>
             </Carousel.Caption>
