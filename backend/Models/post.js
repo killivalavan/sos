@@ -36,7 +36,7 @@ const PostSchema = mongoose.Schema(
     verified: {
       type: Boolean,
       default: false,
-      required: true,
+      // required: true,
     },
   },
   {

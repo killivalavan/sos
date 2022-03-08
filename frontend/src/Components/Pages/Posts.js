@@ -11,15 +11,15 @@ import { Helmet } from "react-helmet";
 const Posts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
+  const [po, setPo] = useState([]);
 
   // Get Posts
   const getPosts = async () => {
     const { data } = await axios.get("/api/posts/");
     setPosts(data);
+    setPo(data);
     setIsLoading(false);
   };
-
-  console.log(posts);
 
   // To get pathID
   const location = useLocation();
@@ -29,6 +29,7 @@ const Posts = () => {
     getPosts();
   }, []);
 
+  console.log(posts);
   return (
     <>
       <Helmet>
@@ -65,13 +66,14 @@ const Posts = () => {
               offset={[100, 0]}
               placeholder={<SpinnerPosts />}
             >
-              {!isLoading && post.verified && (
+              {!isLoading && (
                 <Message
                   key={post._id}
                   id={post._id}
                   name={post.name}
                   message={post.message}
                   date={post.updatedAt}
+                  verified={post.verified}
                 />
               )}
             </LazyLoad>

@@ -113,7 +113,7 @@ const About = () => {
                 Being an anonymous woman you can share your fears and
                 insecurities without giving your private data.
               </p>
-              <img src={idea} />
+              <img src={idea} alt="idea" />
             </div>
 
             <div className="box what">
@@ -125,7 +125,7 @@ const About = () => {
                 We collect data and convey it to authorities responsible for
                 their further accountability for justice.
               </p>
-              <img src={wedo} />
+              <img src={wedo} alt="wedo" />
             </div>
 
             <div className="box how">
@@ -141,7 +141,7 @@ const About = () => {
                 <br /> Once verified, You can find your post in the{" "}
                 <span>POST</span> tab.
               </p>
-              <img src={work} />
+              <img src={work} alt="work" />
             </div>
 
             <div className="box trust">
@@ -153,7 +153,7 @@ const About = () => {
                 we won't take a piece of personal data to accept your posts.
                 Feel free and write to us.
               </p>
-              <img src={trust} />
+              <img src={trust} alt="trust" />
             </div>
 
             <div className="box help">
@@ -165,7 +165,7 @@ const About = () => {
                 We'll listen to your words, those words you cannot say loud to
                 the world we'll carry them out, with your privacy.
               </p>
-              <img src={mic}></img>
+              <img src={mic} alt="mic"></img>
             </div>
 
             <div className="box just">
@@ -174,7 +174,7 @@ const About = () => {
                 <div className="line"></div>
               </h6>
               <p>Spend a few mins and seed your happenings with easy steps.</p>
-              <img src={alarm}></img>
+              <img src={alarm} alt="alarm"></img>
             </div>
 
             <div className="box just">
@@ -186,7 +186,7 @@ const About = () => {
                 We made this site to save every woman from the sexual harassment
                 they face in their daily life.
               </p>
-              <img src={women} />
+              <img src={women} alt="women" />
             </div>
 
             <div className="box just">
@@ -198,7 +198,7 @@ const About = () => {
                 Don't leave a single piece of evidence against the victim.
                 Attach with it.
               </p>
-              <img src={upload} />
+              <img src={upload} alt="upload" />
             </div>
 
             <div className="box just">
@@ -207,7 +207,7 @@ const About = () => {
                 <div className="line"></div>
               </h6>
               <p>For any queries contact us, saveoursouls@gmail.com</p>
-              <img src={contact} />
+              <img src={contact} alt="contact" />
             </div>
           </SectionTwo>
           <Footer />

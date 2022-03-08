@@ -7,7 +7,7 @@ import Avatar, { genConfig } from "react-nice-avatar";
 //Time Stramp
 import ReactTimeAgo from "react-time-ago";
 
-const Message = ({ id, name, message, date }) => {
+const Message = ({ id, name, message, date, verified }) => {
   //Avatar
   const config = genConfig({
     sex: "woman",
@@ -33,31 +33,34 @@ const Message = ({ id, name, message, date }) => {
           <Avatar style={{ width: "3rem", height: "3rem" }} {...config} />
         </div>
         <div className="card-body">
-          <div className="name">
-            <Link className="more-info" to={`/posts/${id}`}>
-              {name}
-            </Link>
-            <span className="date">
-              <ReactTimeAgo date={Date.parse(date)} locale="en-US" />
-            </span>
-          </div>
-          <div className="message">
-            {message.substring(0, 200)}
-            {message.length >= 150 && (
-              <Link className="read-more" to={`/posts/${id}`}>
-                {" "}
-                Read more
+          {!verified && <p className="verify">Pending Review!</p>}
+          <div className={`${verified ? "dontBlur" : "blur"}`}>
+            <div className="name">
+              <Link className="more-info" to={`/posts/${id}`}>
+                {name}
               </Link>
-            )}
-          </div>
-          <div className="message-mobile-view">
-            {message.substring(0, 245)}
-            {message.length >= 160 && (
-              <Link className="read-more" to={`/posts/${id}`}>
-                {" "}
-                Read more
-              </Link>
-            )}
+              <span className="date">
+                <ReactTimeAgo date={Date.parse(date)} locale="en-US" />
+              </span>
+            </div>
+            <div className="message">
+              {message.substring(0, 200)}
+              {message.length >= 150 && (
+                <Link className="read-more" to={`/posts/${id}`}>
+                  {" "}
+                  Read more
+                </Link>
+              )}
+            </div>
+            <div className="message-mobile-view">
+              {message.substring(0, 245)}
+              {message.length >= 160 && (
+                <Link className="read-more" to={`/posts/${id}`}>
+                  {" "}
+                  Read more
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </Card>
@@ -66,6 +69,7 @@ const Message = ({ id, name, message, date }) => {
 };
 
 const Card = styled.div`
+position: relative;
   height: 15vh;
   width: 23rem;
   background: white;
@@ -96,9 +100,6 @@ const Card = styled.div`
         text-transform: lowercase;
       }
     }
-    .read-more {
-      /* font-size: 0.6rem; */
-    }
     .more-info {
       color: var(--blue);
       &:hover {
@@ -112,7 +113,26 @@ const Card = styled.div`
     .message {
       display: block;
     }
-  }
+/* To blur */
+    .blur {
+      -webkit-filter: blur(4px);
+      -moz-filter: blur(4px);
+      -o-filter: blur(4px);
+      -ms-filter: blur(4px);
+      filter: blur(4px);
+      pointer-events: none;
+    }
+    .verify {
+      position: absolute;
+      top: 40%;
+      left: 30%;
+      font-size: .9rem;
+      font-style: italic;
+      color: black;
+      padding: .2rem 2rem;
+    }
+
+    
 
   @media screen and (max-width: 678px) {
     height: 20vh;

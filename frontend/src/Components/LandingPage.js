@@ -6,7 +6,6 @@ import img4 from "../img/carousel/4.jpg";
 import img5 from "../img/carousel/5.jpg";
 import img6 from "../img/carousel/6.jpg";
 import img7 from "../img/carousel/7.jpg";
-import img8 from "../img/carousel/8.jpg";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
