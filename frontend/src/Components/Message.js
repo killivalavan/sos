@@ -70,7 +70,7 @@ const Message = ({ id, name, message, date, verified }) => {
 
 const Card = styled.div`
   position: relative;
-  height: 15vh;
+  height: 16vh;
   width: 23rem;
   background: white;
   display: flex;
