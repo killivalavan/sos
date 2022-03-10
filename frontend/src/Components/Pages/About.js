@@ -228,7 +228,6 @@ const Container = styled.div`
   overflow-y: scroll;
   scroll-behavior: smooth;
   @media screen and (max-width: 866px) {
-    /* scroll-snap-type: none; */
     overflow-y: none;
   }
 `;
@@ -255,7 +254,7 @@ const SectionOne = styled.div`
   .title {
     color: white;
     min-height: 90vh;
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -263,6 +262,7 @@ const SectionOne = styled.div`
     color: #f0f0f0;
     display: none;
     h4 {
+      /* width: 80%; */
     }
     .icon {
       margin: 0rem 0.9rem;
