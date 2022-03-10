@@ -131,16 +131,14 @@ const Card = styled.div`
       font-style: italic;
       color: black;
       padding: 0.1rem 1rem;
-      padding-bottom: 0rem;
       background: white;
       border-left: 5px solid var(--blue);
-      /* border-radius: 5px */
       z-index: 1;
     }
   }
 
   @media screen and (max-width: 678px) {
-    height: 20vh;
+    height: 19vh;
     width: 20rem;
     .card-body {
       .message-mobile-view {
