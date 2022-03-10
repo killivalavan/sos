@@ -259,6 +259,7 @@ const SectionOne = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: #f0f0f0;
     display: none;
     h4 {
