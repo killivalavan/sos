@@ -124,12 +124,18 @@ const Card = styled.div`
     }
     .verify {
       position: absolute;
-      top: 40%;
-      left: 30%;
-      font-size: 0.9rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.8rem;
       font-style: italic;
       color: black;
-      padding: 0.2rem 2rem;
+      padding: 0.1rem 1rem;
+      padding-bottom: 0rem;
+      background: white;
+      border-left: 5px solid var(--blue);
+      /* border-radius: 5px */
+      z-index: 1;
     }
   }
 

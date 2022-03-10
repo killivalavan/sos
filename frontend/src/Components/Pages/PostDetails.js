@@ -45,7 +45,7 @@ const PostDetails = ({ id }) => {
 
   useEffect(() => {
     const getPostDetails = async () => {
-      const { data } = await axios.get(`/api/posts/${id}`);
+      const { data } = await axios.get(`http://localhost:5000/api/posts/${id}`);
       setPostDetails(data);
       setIsLoading(!isloading);
     };
@@ -169,7 +169,7 @@ const Shadow = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 3;
   overflow-y: scroll;
 `;
 
@@ -183,7 +183,7 @@ const Details = styled(motion.div)`
   position: absolute;
   left: 20%;
   top: 10%;
-  z-index: 1;
+  z-index: 4;
   @media screen and (max-width: 678px) {
     left: 8%;
     width: 85%;

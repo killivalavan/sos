@@ -154,7 +154,7 @@ const StyledNav = styled.div`
 
   @media screen and (max-width: 920px) {
     .nav-links {
-      z-index: 1;
+      z-index: 5;
       background-color: white;
       position: fixed;
       width: 100%;

@@ -11,13 +11,11 @@ import { Helmet } from "react-helmet";
 const Posts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
-  const [po, setPo] = useState([]);
 
   // Get Posts
   const getPosts = async () => {
-    const { data } = await axios.get("/api/posts/");
+    const { data } = await axios.get("http://localhost:5000/api/posts/");
     setPosts(data);
-    setPo(data);
     setIsLoading(false);
   };
 
@@ -29,7 +27,6 @@ const Posts = () => {
     getPosts();
   }, []);
 
-  console.log(posts);
   return (
     <>
       <Helmet>

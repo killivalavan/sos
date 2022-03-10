@@ -8,5 +8,5 @@ export let formSchema = yup.object().shape({
   country: yup.string().required(),
   date: yup.string().required(),
   category: yup.string().required(),
-  message: yup.string().min(600).max(4000).required(),
+  message: yup.string().min(300).max(4000).required(),
 });
