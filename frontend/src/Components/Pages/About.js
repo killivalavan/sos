@@ -14,7 +14,6 @@ import upload from "../../img/about/upload.png";
 import work from "../../img/about/work.png";
 import idea from "../../img/about/idea.png";
 import wedo from "../../img/about/wedo.png";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDoubleDown,
@@ -350,8 +349,6 @@ const SectionTwo = styled(motion.div)`
 
   .box img {
     position: absolute;
-    /* padding-bottom: 0rem;
-    float: right; */
     right: 6%;
     bottom: 6%;
     transform: translate(-6%, -6%);

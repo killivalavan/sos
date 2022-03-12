@@ -286,9 +286,6 @@ const Message = styled.div`
     text-align: left;
     margin-bottom: 2rem;
   }
-  p {
-    /* color: #696969; */
-  }
 `;
 
 export default PostDetails;
