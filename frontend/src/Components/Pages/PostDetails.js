@@ -77,87 +77,89 @@ const PostDetails = ({ id }) => {
         />
         <title>Save women - saveoursouls.co.in</title>
       </Helmet>
-      <Shadow onClick={closeHandler} className="shadow">
-        <Details>
-          <Conent>
-            <div onClick={closeIconHandler} className="close">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-            <div className="avatar">
-              <Avatar style={{ width: "7rem", height: "7rem" }} {...config} />
-            </div>
-            <div className="name">
-              {!isloading ? (
-                <h4>{postDetails.name}</h4>
-              ) : (
-                <Skeleton sx={{ mx: "auto", mt: 10 }} width={100} />
-              )}
-            </div>
-            <Info>
-              {/* <div> */}
-              {!isloading ? (
-                <div className="item">
-                  <p>Country</p>
-                  <h6>{postDetails.country}</h6>
-                </div>
-              ) : (
-                <SpinnerTitle />
-              )}
-              {!isloading ? (
-                <div className="item">
-                  <p>City</p>
-                  <h6>{postDetails.city}</h6>
-                </div>
-              ) : (
-                <SpinnerTitle />
-              )}
-              {!isloading ? (
-                <div className="item">
-                  <p>Locality</p>
-                  <h6>{postDetails.locality}</h6>
-                </div>
-              ) : (
-                <SpinnerTitle />
-              )}
-              {/* </div> */}
-              {!isloading ? (
-                <div className="item category">
-                  <p>What happen</p>
-                  <h6>{postDetails.category}</h6>
-                </div>
-              ) : (
-                <SpinnerTitle />
-              )}
-              {!isloading ? (
-                <div className="item">
-                  <p>When</p>
-                  <h6>{moment(postDetails.date).format("MMM DD, YYYY")}</h6>
-                </div>
-              ) : (
-                <SpinnerTitle />
-              )}
-            </Info>
-            <Line />
-            <Message>
-              {!isloading ? <h6>Mesage</h6> : <SpinnerTitle />}
-              {!isloading ? <p>{postDetails.message}</p> : <SpinnerMsg />}
-            </Message>
-          </Conent>
-        </Details>
-      </Shadow>
+      {postDetails && (
+        <Shadow onClick={closeHandler} className="shadow">
+          <Details>
+            <Conent>
+              <div onClick={closeIconHandler} className="close">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <div className="avatar">
+                <Avatar style={{ width: "7rem", height: "7rem" }} {...config} />
+              </div>
+              <div className="name">
+                {!isloading ? (
+                  <h4>{postDetails.name}</h4>
+                ) : (
+                  <Skeleton sx={{ mx: "auto", mt: 10 }} width={100} />
+                )}
+              </div>
+              <Info>
+                {/* <div> */}
+                {!isloading ? (
+                  <div className="item">
+                    <p>Country</p>
+                    <h6>{postDetails.country}</h6>
+                  </div>
+                ) : (
+                  <SpinnerTitle />
+                )}
+                {!isloading ? (
+                  <div className="item">
+                    <p>City</p>
+                    <h6>{postDetails.city}</h6>
+                  </div>
+                ) : (
+                  <SpinnerTitle />
+                )}
+                {!isloading ? (
+                  <div className="item">
+                    <p>Locality</p>
+                    <h6>{postDetails.locality}</h6>
+                  </div>
+                ) : (
+                  <SpinnerTitle />
+                )}
+                {/* </div> */}
+                {!isloading ? (
+                  <div className="item category">
+                    <p>What happen</p>
+                    <h6>{postDetails.category}</h6>
+                  </div>
+                ) : (
+                  <SpinnerTitle />
+                )}
+                {!isloading ? (
+                  <div className="item">
+                    <p>When</p>
+                    <h6>{moment(postDetails.date).format("MMM DD, YYYY")}</h6>
+                  </div>
+                ) : (
+                  <SpinnerTitle />
+                )}
+              </Info>
+              <Line />
+              <Message>
+                {!isloading ? <h6>Mesage</h6> : <SpinnerTitle />}
+                {!isloading ? <p>{postDetails.message}</p> : <SpinnerMsg />}
+              </Message>
+            </Conent>
+          </Details>
+        </Shadow>
+      )}
     </>
   );
 };
