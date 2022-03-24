@@ -77,9 +77,10 @@ const PostDetails = ({ id }) => {
         />
         <title>Save women - saveoursouls.co.in</title>
       </Helmet>
-      {postDetails && (
-        <Shadow onClick={closeHandler} className="shadow">
-          <Details>
+
+      <Shadow onClick={closeHandler} className="shadow">
+        <Details>
+          {postDetails && (
             <Conent>
               <div onClick={closeIconHandler} className="close">
                 <svg
@@ -157,9 +158,9 @@ const PostDetails = ({ id }) => {
                 {!isloading ? <p>{postDetails.message}</p> : <SpinnerMsg />}
               </Message>
             </Conent>
-          </Details>
-        </Shadow>
-      )}
+          )}
+        </Details>
+      </Shadow>
     </>
   );
 };
