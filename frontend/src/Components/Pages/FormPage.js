@@ -297,7 +297,6 @@ const FormPage = ({ setModal }) => {
                   </div>
                   <div className="input-box">
                     <button
-                      id="submit"
                       disabled={false}
                       onClick={onClickHandler}
                       type="submit"
